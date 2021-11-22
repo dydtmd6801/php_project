@@ -5,26 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/reset.css">
-    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/index_header.css">
+    <link rel="stylesheet" href="./css/index_section.css">
+    <link rel="stylesheet" href="./css/footer.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
-    <title>Document</title>
+    <title>Yong'S in Daegu</title>
 </head>
 <body>
-    <header id="main_header">
-        <div id="top_gnb">
-            <div id="main_logo"><a href="index.php">Yong'S in Daegu<a></div>
-            <div id="main_menu">
-                <ul class="main_top_menu">
-                    <li class="top_sub_menu"><a href="#">대구 놀거리</a></li>
-                    <li class="top_sub_menu"><a href="#">대구 먹거리</a></li>
-                    <li class="top_sub_menu"><a href="#">사람들 이야기</a></li>
-                    <li class="top_sub_menu_img" onclick="show_login_menu()"><a href="#"><img src="./img/login_white.png" alt="로그인"/></a></li>
-                </ul>
-            </div>
-        </div>
-    </header>
+    <?php include "index_header.php"; ?>
     <section id="main_section">
         <div>
         What is Lorem Ipsum?
@@ -53,41 +43,10 @@ Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots 
 The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.
 
 Where can I get some?
-There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.
+There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words 
+etc.
         </div>
     </section>
-    <footer id="main_footer">
-        <div id="footer_size">
-            <div id="footer_logo">
-                <a href="index.php">Yong'S in Daegu</a>
-            </div>
-            <div id="footer_text">
-                <div id="maker">
-                    <div class="center">
-                        <p class="footer_title">만든사람</p>
-                        <p class="footer_content">영남이공대학교</p>
-                        <p class="footer_content">1805021 유용승</p>
-                    </div>
-                </div>
-                <div id="readme">
-                    <div class="center">
-                        <p class="footer_title">페이지 소개</p>
-                        <p class="footer_content">영남이공대학교 2학년 2학기</p>
-                        <p class="footer_content">PHP 기말 프로젝트</p>
-                        <p class="footer_content">대구 놀거리 먹거리 소개</p>
-                    </div>
-                </div>
-                <div id="maker_info">
-                    <div class="center">
-                        <p class="footer_title">개발자 이력</p>
-                        <p class="footer_content">notion</p>
-                        <p class="footer_content">github</p>
-                        <p class="footer_content">facebook</p>
-                        <p class="footer_content">instagram</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <?php include "footer.html" ?>
 </body>
 </html>
