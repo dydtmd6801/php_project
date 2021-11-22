@@ -14,13 +14,13 @@
 <body>
     <header id="main_header">
         <div id="top_gnb">
-            <div id="main_logo">Yong'S in Daegu</div>
+            <div id="main_logo"><a href="index.php">Yong'S in Daegu<a></div>
             <div id="main_menu">
                 <ul class="main_top_menu">
-                    <a href="#"><li class="top_sub_menu">대구 놀거리</li></a>
-                    <a href="#"><li class="top_sub_menu">대구 먹거리</li></a>
-                    <a href="#"><li class="top_sub_menu">사람들 이야기</li></a>
-                    <a href="#"><li class="top_sub_menu" onclick="show_login_menu()">img</li></a>
+                    <li class="top_sub_menu"><a href="#">대구 놀거리</a></li>
+                    <li class="top_sub_menu"><a href="#">대구 먹거리</a></li>
+                    <li class="top_sub_menu"><a href="#">사람들 이야기</a></li>
+                    <li class="top_sub_menu_img" onclick="show_login_menu()"><a href="#"><img src="./img/login_white.png" alt="로그인"/></a></li>
                 </ul>
             </div>
         </div>
@@ -59,7 +59,7 @@ There are many variations of passages of Lorem Ipsum available, but the majority
     <footer id="main_footer">
         <div id="footer_size">
             <div id="footer_logo">
-                <p>Yong'S in Daegu</p>
+                <a href="index.php">Yong'S in Daegu</a>
             </div>
             <div id="footer_text">
                 <div id="maker">
