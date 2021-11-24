@@ -26,7 +26,7 @@
     font-weight: bold;
 }
 #sub_menu{
-    margin-right: 50px;
+    /* margin-right: 50px; */
     display: inline-block;
 }
 .sub_top_menu{

@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/footer.css">
+    <script src="./js/check_login.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
@@ -16,10 +17,10 @@
     <?php include "header.php"; ?>
     <section>
         <div>
-            <form name="login_check" action="login_check.php" method="post">
-                아이디 <input type="text"><br>
-                비밀번호 <input type="password">
-                <button type="button">로그인</button>
+            <form id="id_login_check" name="login_check" action="login_check.php" method="post">
+                아이디 <input type="text" name="id_name" id="id_value"><br>
+                비밀번호 <input type="password" name="pw_name" id="pw_value">
+                <button onclick="check_login()" type="button">로그인</button>
             </form>
         </div>
         <div>
