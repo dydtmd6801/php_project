@@ -15,7 +15,7 @@
                 <?php if(!$userid) { ?>
                     <li class="top_sub_menu_img"><a href="login_form.php"><img src="./img/login_white.png" alt="로그인"/></a></li>
                 <?php } else { ?>
-                    <li class="top_sub_menu_img"><a href="#"><img src="./img/logout_white.png" alt="로그아웃"></a></li>
+                    <li class="top_sub_menu_img"><a href="user_info.php"><img src="./img/logout_white.png" alt="로그아웃"></a></li>
                 <?php } ?>
             </ul>
         </div>
