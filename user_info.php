@@ -25,13 +25,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
     <title>Document</title>
+    <script>
+        function delete_userid(){
+            alert("로그아웃 되었습니다.");
+            location.href="index.php";
+        }
+    </script>
 </head>
 <body>
     <?php include "header.php" ?>
     <?php
     $con = mysqli_connect("localhost", "", "", "php_project");
     $sql = "select * from user where id='$userid'";
-    // echo $sql;
     $result = mysqli_query($con, $sql);
     
     $result_row = mysqli_fetch_array($result);
@@ -61,6 +66,9 @@
             <td><?=$email?></td>
         </tr>
     </table>
+    <form action="delete_userid.php" method="post">
+        <button type="submit">로그아웃</button>
+    </form>
     <?php include "footer.html" ?>
 </body>
 </html>
