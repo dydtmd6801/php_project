@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/footer.css">
+    <link rel="stylesheet" href="./css/no_scroll.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
@@ -15,7 +16,9 @@
 <body>
     <?php include "header.php"; ?>
     <section>
-        
+        <?php
+        echo $_GET["subject"];
+        ?>
     </section>
     <?php include "footer.html"; ?>
 </body>

@@ -1,0 +1,53 @@
+#theater_zone{
+    display: flex;
+    flex-direction: row;
+    width: 1080px;
+    margin: 0 auto;
+}
+#theater_img{
+    width: 100px;
+    height: 140px;
+}
+.poster{
+    width: 80px;
+    height: 120px;
+    padding: 10px;
+    background: green;
+}
+#theater_content{
+    justify-content: center;
+    flex: 1;
+    height: 140px;
+    padding-right: 50px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: flex;
+    flex-direction: column;
+}
+#theater_content > div{
+    justify-content: center;
+}
+#theater_title{
+    font-size: 1.2em;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;   
+}
+#theater_review{
+    width: 140px;
+    height: 140px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.write_review_btn{
+    width: 100px;
+    height:50px;
+    display: inline-block;
+    background: red;
+    text-align: center;
+    line-height: 50px;
+}

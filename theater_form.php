@@ -55,30 +55,35 @@
                 ?>
                 <div id="theater_zone">
                     <div id="theater_img">
-
+                        <img src="" alt="크롤링 아직" class="poster">
                     </div>
                     <div id="theater_content">
-                        <p>제목 : <?=$subject?></p>
-                        <?php
-                        if($start_date == $end_date){
-                            $total_date = $start_date;
-                            ?>
-                            <p>날짜 : <?=$total_date?>
+                        <div id="theater_content_center">
+                            <p id="theater_title">제목 : <?=$subject?></p>
                             <?php
-                        } else {
+                            if($start_date == $end_date){
+                                $total_date = $start_date;
+                                ?>
+                                <p>날짜 : <?=$total_date?>
+                                <?php
+                            } else {
+                                ?>
+                                <p>날짜 : <?=$start_date?> ~ <?=$end_date?></p>
+                                <?php
+                            }
                             ?>
-                            <p>날짜 : <?=$start_date?> ~ <?=$end_date?></p>
-                            <?php
-                        }
-                        ?>
-                        <p>관람 유형 : <?=$pay_gubun_name?></p>
-                        <p>장소 : <?=$place?></p>
+                            <p>관람 유형 : <?=$pay_gubun_name?></p>
+                            <p>장소 : <?=$place?></p>
+                        </div>
                     </div>
                     <div id="theater_review">
-                        <a href="review_insert">리뷰쓰기</a>
+                        <a href="review_insert.php?subject=<?=$subject?>">
+                            <div class="write_review_btn">
+                                리뷰쓰기
+                            </div>
+                        </a>
                     </div>
                 </div>
-                <hr>
                 <?php
             }
         }
