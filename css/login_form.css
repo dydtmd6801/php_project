@@ -1,0 +1,45 @@
+header{
+    font-weight: bold;
+    font-size: 2.2em;
+    text-align: center;
+    height: 100px;
+    line-height: 180px;
+    color: black;
+}
+section{
+    flex: 1;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#div_id_value, #div_pw_value {
+    width: 300px;
+    height: 40px;
+    margin-top: 10px;
+    border-width: 1px;
+    /* border-radius: 10px; */
+    border-color: #dadada;
+}
+#id_value, #pw_value{
+    width: 260px;
+    height: 20px;
+    padding: 10px 20px 10px 20px;
+    /* border: 6px; */
+    border-radius: 6px;
+    border-width: 0.8px;
+}
+#login_btn{
+    width: 305px;
+    height: 50px;
+    margin-top: 30px;
+    border-radius: 6px;
+    border-width: 0px;
+    box-shadow: 0 1px 6px 0 rgb(32 33 36 / 28%);
+}
+footer{
+    height: 200px;
+}
+#login_content > p{
+    margin-top: 32px;
+}

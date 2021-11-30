@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -47,17 +47,31 @@
             echo "데이터가 없습니다.";
         } else {
             for($i = 0; $i < $exhibition_data_count; $i++){
-                echo "기간 : ";
-                print_r($exhibition_data_decode[$i]["start_date"]);
-                echo " ~ ";
-                print_r($exhibition_data_decode[$i]["end_date"]);
-                echo "<br> 유료/무료 : ";
-                print_r($exhibition_data_decode[$i]["pay_gubun_name"]);
-                echo "<br> 이름 : ";
-                print_r($exhibition_data_decode[$i]["subject"]);
-                echo "<br> 장소 : ";
-                print_r($exhibition_data_decode[$i]["place"]);
-                echo "<hr>";
+                // echo "기간 : ";
+                // print_r($exhibition_data_decode[$i]["start_date"]);
+                $start_date = $exhibition_data_decode[$i]["start_date"];
+                // echo " ~ ";
+                // print_r($exhibition_data_decode[$i]["end_date"]);
+                $end_date = $exhibition_data_decode[$i]["end_date"];
+                // echo "<br> 유료/무료 : ";
+                // print_r($exhibition_data_decode[$i]["pay_gubun_name"]);
+                $pay_gubun_name = $exhibition_data_decode[$i]["pay_gubun_name"];
+                // echo "<br> 이름 : ";
+                // print_r($exhibition_data_decode[$i]["subject"]);
+                $subject = $exhibition_data_decode[$i]["subject"];
+                // echo "<br> 장소 : ";
+                // print_r($exhibition_data_decode[$i]["place"]);
+                $place = $exhibition_data_decode[$i]["place"];
+                // echo "<hr>";
+                ?>
+                <div>
+                    <p>기간 : <?=$start_date?> ~ <?=$end_date?></p>
+                    <p>유료/무료 : <?=$pay_gubun_name?></p>
+                    <p>제목 : <?=$subject?></p>
+                    <p>장소 : <?=$place?></p>
+                    <hr>
+                </div>
+                <?php
             }
         }
     ?>

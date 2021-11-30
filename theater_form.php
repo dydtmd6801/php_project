@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -38,7 +38,7 @@
         if(!$theater_date){
             $theater_date = date("Y-m");
         }
-        echo "현재 조회한 날짜 : ".$theater_date."<br>";
+        echo "현재 조회한 날짜 : ".$theater_date."<hr>";
         $set_url = "https://dgfc.or.kr/ajax/event/list.json?event_gubun=PF&start_date=".$theater_date;
         $theater_data = httpPost("$set_url");
         $theater_data_decode = json_decode($theater_data, true);
@@ -47,17 +47,39 @@
             echo "데이터가 없습니다.";
         } else {
             for($i = 0; $i < $theater_data_count; $i++){
-                echo "기간 : ";
-                print_r($theater_data_decode[$i]["start_date"]);
-                echo " ~ ";
-                print_r($theater_data_decode[$i]["end_date"]);
-                echo "<br> 유료/무료 : ";
-                print_r($theater_data_decode[$i]["pay_gubun_name"]);
-                echo "<br> 이름 : ";
-                print_r($theater_data_decode[$i]["subject"]);
-                echo "<br> 장소 : ";
-                print_r($theater_data_decode[$i]["place"]);
-                echo "<hr>";
+                $start_date = $theater_data_decode[$i]["start_date"];
+                $end_date = $theater_data_decode[$i]["end_date"];
+                $pay_gubun_name = $theater_data_decode[$i]["pay_gubun_name"];
+                $subject = $theater_data_decode[$i]["subject"];
+                $place = $theater_data_decode[$i]["place"];
+                ?>
+                <div id="theater_zone">
+                    <div id="theater_img">
+
+                    </div>
+                    <div id="theater_content">
+                        <p>제목 : <?=$subject?></p>
+                        <?php
+                        if($start_date == $end_date){
+                            $total_date = $start_date;
+                            ?>
+                            <p>날짜 : <?=$total_date?>
+                            <?php
+                        } else {
+                            ?>
+                            <p>날짜 : <?=$start_date?> ~ <?=$end_date?></p>
+                            <?php
+                        }
+                        ?>
+                        <p>관람 유형 : <?=$pay_gubun_name?></p>
+                        <p>장소 : <?=$place?></p>
+                    </div>
+                    <div id="theater_review">
+                        <a href="review_insert">리뷰쓰기</a>
+                    </div>
+                </div>
+                <hr>
+                <?php
             }
         }
     ?>

@@ -13,7 +13,7 @@
     }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -45,7 +45,7 @@
     $pw = $result_row["pw"];
     $name = $result_row["name"];
     $email = $result_row["email"];
-    $nick = $result_row["nick"];
+    $nick = $result_row["nickname"];
     ?>
     <p>마이페이지</p>
     <table>
