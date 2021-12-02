@@ -2,7 +2,7 @@
 $id = $_POST["id_name"];
 $pw = $_POST["pw_name"];
 
-$con = mysqli_connect("localhost", "", "", "php_project");
+$con = mysqli_connect("localhost", "php_project", "1234", "php_project");
 $sql = "select * from user where id='$id'";
 $result = mysqli_query($con, $sql);
 

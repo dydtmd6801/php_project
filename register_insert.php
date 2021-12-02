@@ -13,7 +13,7 @@ if(!$email_domain == "no"){
 $email = $email."@".$email_domain;
 $regist_day = date("Y-m-d (H:i)");
 
-$con = mysqli_connect("localhost", "", "", "php_project");
+$con = mysqli_connect("localhost", "php_project", "1234", "php_project");
 
 $sql = "insert into user (id, password, name, email, nickname, regist_day, level )";
 $sql .= "values ('$id', '$pw', '$name', '$email', '$nick', '$regist_day', 1)";

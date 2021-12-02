@@ -77,7 +77,7 @@
                         </div>
                     </div>
                     <div id="theater_review">
-                        <a href="review_insert.php?subject=<?=$subject?>">
+                        <a href="review_form.php?subject=<?=$subject?>">
                             <div class="write_review_btn">
                                 리뷰쓰기
                             </div>

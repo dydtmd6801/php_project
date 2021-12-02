@@ -21,11 +21,11 @@ function check_star(check_url){
     }
 }
 
-star5.addEventListener('click', function(){select_img(5)});
-star4.addEventListener('click', function(){select_img(4)});
-star3.addEventListener('click', function(){select_img(3)});
-star2.addEventListener('click', function(){select_img(2)});
-star1.addEventListener('click', function(){select_img(1)});
+star5.addEventListener('click', (e)=>{select_img(5)});
+star4.addEventListener('click', (e)=>{select_img(4)});
+star3.addEventListener('click', (e)=>{select_img(3)});
+star2.addEventListener('click', (e)=>{select_img(2)});
+star1.addEventListener('click', (e)=>{select_img(1)});
 function select_img(star_cnt){
     var img_src_fill = "./img/star.png";
     var img_src_empty = "./img/star_empty.png";
@@ -36,7 +36,6 @@ function select_img(star_cnt){
     var check_star2 = check_star(star2.src);
     switch(star_cnt){
         case 1:
-            console.log(star1.src);
             if(check_star5 == false && check_star4 == false && check_star3 == false && check_star2 == false){
                 if(star1.src == "http://192.168.244.128/php_project/img/star.png"){
                     img_src_fill = "./img/star_empty.png";

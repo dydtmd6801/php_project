@@ -1,16 +1,10 @@
-.star-rating {
-    display:flex;
-    flex-direction: row-reverse;
-    justify-content:space-around;
-    padding:0 .2em;
-    text-align:center;
-    width:150px;
-  }
-  
-  .star-rating input {
-    display:none;
-  }
-  
-  .star-rating label {
-    cursor:pointer;
-  }
+.star-display{ display:inline }
+.star-rating { display:flex; flex-direction:row-reverse; justify-content:space-around; padding:0 .2em; text-align:center; width:150px; }
+.star-rating input { display:none; }
+.star-rating label { cursor:pointer; }
+.star_img{ width: 30px; height: 30px; }
+.star_img:hover{ filter: drop-shadow(1px 1px 4px grey); }
+#review_star{
+  display: flex;
+  flex-direction: row;
+}

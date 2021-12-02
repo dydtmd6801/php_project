@@ -16,9 +16,6 @@
     <title>Document</title>
 </head>
 <body>
-    <?php
-    //  include "header.php"; 
-    ?>
     <header><a href="index.php">Yong'S in Culture</a></header>
     <section>
         <div id="login_content">
@@ -36,8 +33,5 @@
     </section>
     <footer>
     </footer>
-    <?php 
-    // include "footer.html";
-    ?>
 </body>
 </html>

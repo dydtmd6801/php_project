@@ -33,9 +33,8 @@
     </script>
 </head>
 <body>
-    <?php include "header.php" ?>
-    <?php
-    $con = mysqli_connect("localhost", "", "", "php_project");
+    <?php include "header.php";
+    $con = mysqli_connect("localhost", "php_project", "1234", "php_project");
     $sql = "select * from user where id='$userid'";
     $result = mysqli_query($con, $sql);
     
