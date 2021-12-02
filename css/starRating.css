@@ -1,0 +1,16 @@
+.star-rating {
+    display:flex;
+    flex-direction: row-reverse;
+    justify-content:space-around;
+    padding:0 .2em;
+    text-align:center;
+    width:150px;
+  }
+  
+  .star-rating input {
+    display:none;
+  }
+  
+  .star-rating label {
+    cursor:pointer;
+  }
