@@ -52,6 +52,7 @@
                 $pay_gubun_name = $theater_data_decode[$i]["pay_gubun_name"];
                 $subject = $theater_data_decode[$i]["subject"];
                 $place = $theater_data_decode[$i]["place"];
+                $gubun = $theater_data_decode[$i]["event_gubun"];
                 ?>
                 <div id="theater_zone">
                     <div id="theater_img">
@@ -77,7 +78,7 @@
                         </div>
                     </div>
                     <div id="theater_review">
-                        <a href="review_form.php?subject=<?=$subject?>">
+                        <a href="review_form.php?subject=<?=$subject?>&gubun=<?=$gubun?>">
                             <div class="write_review_btn">
                                 리뷰쓰기
                             </div>

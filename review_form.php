@@ -16,23 +16,11 @@
     <title>Document</title>
     <script>
         function theater_review(){
-            // console.log(document.getElementById("th"))
-            if(!document.getElementById("theater_title_id").value){
-                alert("제목을 입력해주세요");
-                document.getElementById("theater_title_id").focus();
-                return;
-            }
             if(document.querySelector('input[name="rating"]:checked').value == 0){
                 alert("별점을 입력해주세요");
                 document.querySelector('input[name="rating"]:checked').focus();
                 return;
             }
-            // if(!document.getElementById("review_content").value){
-            //     console.log(document.getElementById("review_content").value)
-            //     alert("내용을 입력해주세요");
-            //     document.getElementById("review_content").focus();
-            //     return;
-            // }
             if(!document.getElementById("id_content").value){
                 alert("내용을 입력해주세요");
                 document.getElementById("id_content").focus();
@@ -44,14 +32,13 @@
 </head>
 <body>
     <?php include "header.php"; ?>
+    <?php $subject = $_GET["subject"];
+          $gubun   = $_GET["gubun"] ?>
     <section>
-        <form action="review_insert.php" id="review_insert_id" method="post">
+        <form action="review_insert.php?subject=<?=$subject?>&gubun=<?=$gubun?>" id="review_insert_id" method="post">
             <div id="review_form">
                 <div id="review_subject">
-                    연극 제목 : <?php echo $_GET["subject"]; ?>
-                </div>
-                <div id="review_title">
-                    제목 : <input type="text" id="theater_title_id" name="theater_title" value="">
+                    연극 제목 : <?php echo $subject ?>
                 </div>
                 <div id="review_star">
                     별점 : 

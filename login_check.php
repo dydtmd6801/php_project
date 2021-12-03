@@ -32,6 +32,8 @@ if(!$num_check){
     } else {
         session_start();
         $_SESSION["userid"] = $result_row["id"];
+        $_SESSION["username"] = $result_row["name"];
+        $_SESSION["usernick"] = $result_row["nickname"];
 
         echo "
             <script>
