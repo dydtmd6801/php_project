@@ -23,16 +23,15 @@
     $rating  = $_POST["rating"];
     $content = $_POST["theater_content"];
 
-    $subject = str_replace("'", "", $subject);
+    $subject = str_replace("'", "\'", $subject);
 	$content = htmlspecialchars($content, ENT_QUOTES);
 
 	$regist_day = date("Y-m-d (H:i)");
-    
+
 	$con = mysqli_connect("localhost", "php_project", "1234", "php_project");
 
 	$sql = "insert into review (id, name, nickname, subject, content, regist_day, star,  gubun) ";
 	$sql .= "values('$userid', '$username', '$usernick', '$subject', '$content', '$regist_day', '$rating', '$gubun')";
-    echo $sql;
 	mysqli_query($con, $sql);
 
 	mysqli_close($con);
