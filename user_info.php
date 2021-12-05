@@ -30,6 +30,12 @@
             alert("로그아웃 되었습니다.");
             location.href="index.php";
         }
+        function check_delete(){
+            var check = confirm("정말로 회원을 탈퇴하시겠습니까?");
+            if(check == true){
+                document.user_delete.submit();
+            }
+        }
     </script>
 </head>
 <body>
@@ -65,8 +71,9 @@
             <td><?=$email?></td>
         </tr>
     </table>
-    <form action="delete_userid.php" method="post">
-        <button type="submit">로그아웃</button>
+    <button type="botton" onclick="location.href='delete_userid.php'">로그아웃</button>
+    <form action="delete_userinfo.php?id=<?=$userid?>" method="post" name="user_delete">
+        <button type="button" onclick="check_delete()">회원탈퇴</button>
     </form>
     <?php include "footer.html" ?>
 </body>

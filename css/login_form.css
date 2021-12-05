@@ -37,6 +37,7 @@ section{
     margin-top: 30px;
     border-radius: 6px;
     border-width: 0px;
+    cursor: pointer;
     box-shadow: 0 1px 6px 0 rgb(32 33 36 / 28%);
 }
 footer{

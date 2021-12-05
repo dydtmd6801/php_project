@@ -11,7 +11,7 @@ $num_check = mysqli_num_rows($result);
 if(!$num_check){
     echo "
         <script>
-            window.alert('아이디가 올바르지 않습니다.)';
+            alert('아이디가 올바르지 않습니다.');
             history.go(-1);
         </script>
         ";
@@ -24,7 +24,7 @@ if(!$num_check){
     if($pw != $db_pw){
         echo "
             <script>
-                window.alert('비밀번호가 올바르지 않습니다.);
+                alert('비밀번호가 올바르지 않습니다.');
                 history.go(-1);
             </script>
         ";
