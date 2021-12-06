@@ -76,7 +76,7 @@
     <form action="user_delete.php?id=<?=$userid?>" method="post" name="user_delete">
         <button type="button" onclick="check_delete()">회원탈퇴</button>
     </form>
-    <button type="button" onclick="location.href='user_change_form.php'">회원수정</button>
+    <button type="button" onclick="location.href='user_change_form.php?id=<?=$id?>'">회원수정</button>
     <?php include "footer.html" ?>
 </body>
 </html>

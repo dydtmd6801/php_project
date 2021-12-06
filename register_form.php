@@ -62,7 +62,6 @@
                             <option value="daum.com">daum.net</option>
                             <option value="gmail.com">gmail.com</option>
                         </select>
-                        <span id="direct"></span>
                     </div>
                 </div>
             </div>
