@@ -124,7 +124,7 @@
                                     echo "";
                                 } else{
                                 ?>
-                                <p><a href="review_insert.php?subject=<?=$subject?>&gubun=<?=$gubun?>">리뷰쓰기</a></p>
+                                <p><a href="review_form.php?subject=<?=$subject?>&gubun=<?=$gubun?>">리뷰쓰기</a></p>
                                 <?php
                                 }
                                 ?>
@@ -153,7 +153,6 @@
                 } else
                     echo "<li></li>";
             
-                    // 게시판 목록 하단에 페이지 링크 번호 출력
                     $show_start_page_num = 1;
                     $show_page_num = 8;
                     if ($page < $show_page_num && $page >= $show_start_page_num){

@@ -24,7 +24,7 @@
                     <div class="col2">
                         <input type="text" name="data_id" id="id_value" value="">
                     </div>
-                    <button type="button" onclick="check_register()">중복확인</button>
+                    <button type="button" onclick="check_register_id()">중복확인</button>
                 </div>
                 <div class="regi_form">
                     <div class="col1">비밀번호</div>
@@ -49,17 +49,18 @@
                     <div class="col2">
                         <input type="text" name="data_nick" id="nick_value" value="">
                     </div>
-                    <button type="button" onclick="id_check()">중복확인</button>
+                    <button type="button" onclick="check_register_nick()">중복확인</button>
                 </div>
                 <div class="regi_form">
                     <div class="col1">이메일</div>
                     <div class="col2">
                         <input type="text" name="data_email" id="email_value">@
-                        <select id="id_domain" name="data_domain" onchange="show_input()">
+                        <input type="text" name="data_email_domain" id="email_value_domain" value="">
+                        <select id="id_domain" name="data_domain" onchange="select_domain()">
+                            <option value="no">직접입력</option>
                             <option value="naver.com">naver.com</option>
                             <option value="daum.com">daum.net</option>
                             <option value="gmail.com">gmail.com</option>
-                            <option value="no">직접입력</option>
                         </select>
                         <span id="direct"></span>
                     </div>

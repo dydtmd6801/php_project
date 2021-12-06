@@ -4,12 +4,13 @@ $pw = $_POST["data_pw"];
 $name = $_POST["data_name"];
 $nick = $_POST["data_nick"];
 $email = $_POST["data_email"];
-$email_domain = $_POST["data_domain"];
-$email_domain_direct = $_POST["data_domain_direct"];
+$email_domain = $_POST["data_email_domain"];
+// $email_domain = $_POST["data_domain"];
+// $email_domain_direct = $_POST["data_domain_direct"];
 
-if(!$email_domain == "no"){
-    $email_domain = $email_domain_direct;
-}
+// if(!$email_domain == "no"){
+//     $email_domain = $email_domain_direct;
+// }
 $email = $email."@".$email_domain;
 $regist_day = date("Y-m-d (H:i)");
 

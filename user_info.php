@@ -53,6 +53,7 @@
     $nick = $result_row["nickname"];
     ?>
     <p>마이페이지</p>
+    
     <table>
         <tr>
             <td>아이디</td>
@@ -71,10 +72,11 @@
             <td><?=$email?></td>
         </tr>
     </table>
-    <button type="botton" onclick="location.href='delete_userid.php'">로그아웃</button>
-    <form action="delete_userinfo.php?id=<?=$userid?>" method="post" name="user_delete">
+    <button type="button" onclick="location.href='user_logout.php'">로그아웃</button>
+    <form action="user_delete.php?id=<?=$userid?>" method="post" name="user_delete">
         <button type="button" onclick="check_delete()">회원탈퇴</button>
     </form>
+    <button type="button" onclick="location.href='user_change_form.php'">회원수정</button>
     <?php include "footer.html" ?>
 </body>
 </html>
