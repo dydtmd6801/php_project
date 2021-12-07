@@ -67,7 +67,7 @@
     <?php include "header.php"; ?>
     <section>
     <p>나의 정보 변경</p>
-        <form id="change_form" name="user_change" action="user_change.php" method="post">
+        <form id="change_form" name="user_change" action="user_change.php?id=<?=$id?>" method="post">
             <div id="chag">
                 <div class="check_form">
                     <div class="col1">아이디</div>
