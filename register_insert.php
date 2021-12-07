@@ -1,17 +1,9 @@
 <?php
-$id = $_POST["data_id"];
-$pw = $_POST["data_pw"];
-$name = $_POST["data_name"];
-$nick = $_POST["data_nick"];
-$email = $_POST["data_email"];
-$email_domain = $_POST["data_email_domain"];
-// $email_domain = $_POST["data_domain"];
-// $email_domain_direct = $_POST["data_domain_direct"];
-
-// if(!$email_domain == "no"){
-//     $email_domain = $email_domain_direct;
-// }
-$email = $email."@".$email_domain;
+$id = $_POST["regi_id_data"];
+$pw = $_POST["regi_pw_data"];
+$name = $_POST["regi_name_data"];
+$nick = $_POST["regi_nick_data"];
+$email = $_POST["regi_email_data"];
 $regist_day = date("Y-m-d (H:i)");
 
 $con = mysqli_connect("localhost", "php_project", "1234", "php_project");
@@ -25,7 +17,7 @@ mysqli_close($con);
 echo "
     <script>
         alert('회원가입이 완료되었습니다');
-        location.href = 'login_form.php';
+        location.href = 'login_register_form.php';
     </script>
     ";
 ?>

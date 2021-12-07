@@ -1,6 +1,6 @@
 <?php
-$id = $_POST["id_name"];
-$pw = $_POST["pw_name"];
+$id = $_POST["login_id_data"];
+$pw = $_POST["login_pw_data"];
 
 $con = mysqli_connect("localhost", "php_project", "1234", "php_project");
 $sql = "select * from user where id='$id'";
