@@ -88,7 +88,6 @@
                     <?php
                     }
                     ?>
-                    
                         <div class="poster"></div>
                         <div class="content_zone">
                             <span class="data_title">

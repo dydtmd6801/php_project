@@ -30,11 +30,24 @@
         }
     </script>
     <style>
-        #review_insert_id{
+        section {
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             justify-content: center;
             align-items: center;
+        }
+        #review_subject, #review_star {
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        #img-area{
+            width: 280px;
+            height: 400px;
+            border: 1px solid black;
+            margin: 0 5% 0 0;
+        }
+        #id_content{
+            font-family: "Noto Sans KR", sans-serif;
         }
     </style>
 </head>
@@ -43,6 +56,9 @@
     <?php $subject = $_GET["subject"];
           $gubun   = $_GET["gubun"] ?>
     <section>
+        <div id="img-area">
+            <img src="">
+        </div>
         <form action="review_insert.php?subject=<?=$subject?>&gubun=<?=$gubun?>" id="review_insert_id" method="post">
             <div id="review_form">
                 <div id="review_subject">
@@ -65,7 +81,7 @@
                     </div>
                 </div>
                 <div id="review_content">
-                    <textarea cols="80" rows="15" id="id_content" name="theater_content"></textarea>
+                    <textarea cols="80" rows="10" id="id_content" name="theater_content" placeholder="리뷰를 입력해 주세요!"></textarea>
                 </div>
                 <div id="review_btn">
                     <button type="button" onclick="theater_review()">완료</button>

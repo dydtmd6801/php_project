@@ -1,0 +1,110 @@
+.section{
+    /* width: 100%; */
+    width: 1080px;
+    margin: 0 auto;
+}
+.article{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.data_zone{
+    border: 1px solid #ddd;
+    width: 20%;
+    float: left;
+    margin: 0 1% 2% 1%;
+    margin-bottom: 2%;
+    position: relative;
+    padding: 15px;
+}
+.no_data_zone{
+    border: 1px solid white;
+    width: 20%;
+    float: left;
+    margin: 0 1% 2% 1%;
+    margin-bottom: 2%;
+    position: relative;
+    padding: 15px;
+}
+.poster{
+    width: 216px;
+    height: 302px;
+}
+.content_zone{
+    height: 140px;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.data_title{
+    font-size: 1em;
+    font-weight: bold;
+    flex: 4;
+}
+.data_place{
+    font-size: .9em;
+    flex: 2;
+    /* vertical-align: middle; */
+}
+.bottom_menu{
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.bottom_menu > p{
+    font-size: .7em;
+}
+.bottom_menu > p > a{
+    color: black;
+    text-decoration-color: black;
+}
+.page_num{
+    text-align: center;
+    margin: 30px 0 50px 0;
+}
+.page_num form{
+    display: inline;
+}
+/* .select_page, .no_select_page{
+    margin: 0 20px 0 20px;
+    font-size: 1.4em;
+    font-weight: bold;
+}
+.select_page{
+    color: purple;
+    text-decoration: underline;
+    text-decoration-color: purple;
+}
+.no_select_page a{
+    color: black;
+    text-decoration: none;
+} */
+.selected_page, .no_selected_page{
+    margin: 0 15px 0 15px;
+    border-style: none;
+    background: white;
+    font-size: 1.5em;
+    font-weight: bold;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+.selected_page{
+    color: black;
+    cursor: pointer;
+}
+.no_selected_page{
+    color: purple;
+    text-decoration: underline;
+    text-decoration-color: purple;
+}
+.change_page{
+    color: black;
+    cursor: pointer;
+    border-style: none;
+    background: white;
+    font-size:1.0em;
+    margin: 0 5px 0 5px;
+    font-weight: bold;
+    font-family: 'Noto Sans KR', sans-serif;
+}
