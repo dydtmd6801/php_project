@@ -1,9 +1,20 @@
 <?php
-$id = $_GET["id"];
+    session_start();
+    if (isset($_SESSION["userid"])){ 
+        $id = $_SESSION["userid"];
+    } else{ 
+        $id = "";
+        echo "
+            <script>
+                alert('로그인을 해주세요!');
+                location.href='index.php';
+            </script>
+             ";
+    }
+// $id = $_GET["id"];
 $pw = $_POST["data_pw"];
 $name = $_POST["data_name"];
 $email = $_POST["data_email"];
-$email_domain = $_POST["data_email_domain"];
 
 $email = $email."@".$email_domain;
 $modify_day = date("Y-m-d (H:i)");

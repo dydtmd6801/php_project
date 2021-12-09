@@ -13,70 +13,83 @@
     }
 ?>
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/reset.css">
-    <link rel="stylesheet" href="./css/header.css">
-    <link rel="stylesheet" href="./css/footer.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/mypage_form.css">
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js' integrity='sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==' crossorigin='anonymous'></script>
     <title>Document</title>
     <script>
-        function delete_userid(){
-            alert("로그아웃 되었습니다.");
-            location.href="index.php";
-        }
-        function check_delete(){
-            var check = confirm("정말로 회원을 탈퇴하시겠습니까?");
-            if(check == true){
-                document.user_delete.submit();
+        $(document).ready(function(){
+            $('.message a').click(function(){
+                $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
+            });
+        })
+        function check_modify(){
+            if(!document.getElementById("modify_pw").value){
+                alert("비밀번호를 입력해주세요!");
+                document.getElementById("modify_pw").focus();
+                return;
             }
+            if(!document.getElementById("modify_pw_check").value){
+                alert("비밀번호 확인을 입력해주세요!");
+                document.getElementById("modify_pw_check").focus();
+                return;
+            }
+            if(!document.getElementById("modify_name").value){
+                alert("이름을 입력해주세요!");
+                document.getElementById("modify_name").focus();
+                return;
+            }
+            if(!document.getElementById("modify_email").value){
+                alert("이메일을 입력해주세요!");
+                document.getElementById("modify_email").focus();
+                return;
+            }
+            document.getElementById("mypage-edit-id").submit();
         }
     </script>
+    <script src="./js/login_regi.js"></script>
 </head>
 <body>
-    <?php include "header.php";
-    $con = mysqli_connect("localhost", "php_project", "1234", "php_project");
-    $sql = "select * from user where id='$userid'";
-    $result = mysqli_query($con, $sql);
-    
-    $result_row = mysqli_fetch_array($result);
+    <?php
+        $con = mysqli_connect("localhost", "php_project", "1234", "php_project");
+        $sql = "select * from user where id='$userid'";
+        $result = mysqli_query($con, $sql);
+        
+        $result_row = mysqli_fetch_array($result);
 
-    $id = $result_row["id"];
-    $pw = $result_row["pw"];
-    $name = $result_row["name"];
-    $email = $result_row["email"];
-    $nick = $result_row["nickname"];
+        $id = $result_row["id"];
+        $pw = $result_row["pw"];
+        $name = $result_row["name"];
+        $email = $result_row["email"];
+        $nick = $result_row["nickname"];
     ?>
-    <p>마이페이지</p>
-    
-    <table>
-        <tr>
-            <td>아이디</td>
-            <td><?=$id?></td>
-        </tr>
-        <tr>
-            <td>이름</td>
-            <td><?=$name?></td>
-        </tr>
-        <tr>
-            <td>별명</td>
-            <td><?=$nick?></td>
-        </tr>
-        <tr>
-            <td>이메일</td>
-            <td><?=$email?></td>
-        </tr>
-    </table>
-    <button type="button" onclick="location.href='user_logout.php'">로그아웃</button>
-    <form action="user_delete.php?id=<?=$userid?>" method="post" name="user_delete">
-        <button type="button" onclick="check_delete()">회원탈퇴</button>
-    </form>
-    <button type="button" onclick="location.href='user_change_form.php?id=<?=$id?>'">회원수정</button>
-    <?php include "footer.html" ?>
+    <div class="login-page">
+    <div class="form">
+        <p id="mypage-title">마이페이지</p>
+        <form class="mypage-show-form">
+            <input type="text" class="plac_sty" placeholder="<?=$id?>" readonly/>
+            <input type="text" class="plac_sty" placeholder="<?=$name?>" readonly/>
+            <input type="text" class="plac_sty" placeholder="<?=$nick?>" readonly/>
+            <input type="text" class="plac_sty" placeholder="<?=$email?>" readonly/>
+            <p class="message"><a href="#"> 정보수정 </a><a href="user_logout.php"> 로그아웃 </a><a href="index.php"> 취소 </a></p>
+        </form>
+        
+        <form class="mypage-edit-form" action="user_change.php" method="post" id="mypage-edit-id">
+            <input type="text" class="plac_sty" placeholder="<?=$id?>" readonly/>
+            <input type="password" id="modify_pw" name="data_pw" placeholder="비밀번호"/>
+            <input type="password" id="modify_pw_check" placeholder="비밀번호 확인"/>
+            <input type="text" id="modify_name" name="data_name" placeholder="이름"/>
+            <input type="text" class="plac_sty" placeholder="<?=$nick?>" readonly/>
+            <input type="text" id="modify_email" name="data_email" placeholder="이메일"/>
+            <button type="button" onclick="check_modify()">정보수정</button>
+            <p class="message"><a href="user_delete.php?id=<?=$id?>" style="color: red"> 회원탈퇴 </a><a href="#"> 취소 </a></p>
+        </form>
+    </div>
+    </div>
 </body>
 </html>

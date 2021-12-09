@@ -29,6 +29,14 @@
             document.getElementById("review_insert_id").submit(); 
         }
     </script>
+    <style>
+        #review_insert_id{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
 </head>
 <body>
     <?php include "header.php"; ?>

@@ -8,6 +8,14 @@
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/footer.css">
     <title>Document</title>
+    <style>
+        #review_article{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
 </head>
 <body>
     <?php include "header.php"; ?>
@@ -27,7 +35,7 @@
         $star       = $result_row["star"];
         $gubun      = $result_row["gubun"];
         ?>
-        <div id="reivew_article">
+        <div id="review_article">
             <div id="review_top">
                 <p> 별점 : <?=$star?></p>
                 <p> 닉네임 : <?=$nickname?></p>

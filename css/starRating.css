@@ -4,7 +4,4 @@
 .star-rating label { cursor:pointer; }
 .star_img{ width: 30px; height: 30px; }
 .star_img:hover{ filter: drop-shadow(1px 1px 4px grey); }
-#review_star{
-  display: flex;
-  flex-direction: row;
-}
+#review_star{ display: flex; flex-direction: row; align-items: center; }
