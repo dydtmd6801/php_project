@@ -133,66 +133,66 @@
                 }
             }
             ?>
-            </ul>
-            <ul class="page_num">
-                <?php
-                if ($theater_page>=2 && $page >= 2)	
-                {
-                    $new_page = $page-1;
-                    ?>
-                        <form action="theater_form.php?page=1" method="post">
-                            <input type="hidden" value="<?=$theater_date?>" name="theater_date" />
-                            <button type="submit" class="change_page">◀ 처음</button>
-                        </form>
-                        <form action="theater_form.php?page=<?=$new_page?>" method="post">
-                            <input type="hidden" value="<?=$theater_date?>" name="theater_date" />
-                            <button type="submit" class="change_page">◀ 이전</button>
-                        </form>
-                    <?php
-                } else
-                    echo "<li></li>";
-            
-                    $show_start_page_num = 1;
-                    $show_page_num = 8;
-                    if ($page < $show_page_num && $page >= $show_start_page_num){
-                        $show_start_page_num = $show_start_page_num;
-                        $show_page_num = $show_page_num;
-                    } else if($page > $show_page_num){
-                        $show_start_page_num += $page - $show_page_num;
-                        $show_page_num += $page - $show_page_num;
-                    }
-                    for ($i = $show_start_page_num; $i <= $show_page_num; $i++){
-                        if ($page == $i) {
-                            ?>
-                                <form>
-                                    <button class="no_selected_page" disabled><?=$i?></button>
-                                </form>
-                            <?php
-                        } else {
-                            ?>
-                                <form action="theater_form.php?page=<?=$i?>" method="post">
-                                        <input type="hidden" value="<?=$theater_date?>" name="theater_date" />
-                                        <button type="submit" class="selected_page"><?=$i?></button>
-                                </form>
-                            <?php
-                        }
-                    }
-                    if ($theater_page>=2 && $page != $theater_page){
-                        $new_page = $page+1;
-                        ?>
-                        <form action="theater_form.php?page=<?=$new_page?>" method="post">
-                            <input type="hidden" value="<?=$theater_date?>" name="theater_date" />
-                            <button type="submit" class="change_page">다음 ▶</button>
-                        </form>
-                        <form action="theater_form.php?page=<?=$theater_page?>" method="post">
-                            <input type="hidden" value="<?=$theater_date?>" name="theater_date" />
-                            <button type="submit" class="change_page">마지막 ▶</button>
-                        </form>
-                        <?php
-                    } else 
-                        echo "<li></li>";
+        </ul>
+        <ul class="page_num">
+            <?php
+            if ($theater_page>=2 && $page >= 2)	
+            {
+                $new_page = $page-1;
                 ?>
-            </ul>	    	
+                    <form action="theater_form.php?page=1" method="post">
+                        <input type="hidden" value="<?=$theater_date?>" name="theater_date" />
+                        <button type="submit" class="change_page">◀ 처음</button>
+                    </form>
+                    <form action="theater_form.php?page=<?=$new_page?>" method="post">
+                        <input type="hidden" value="<?=$theater_date?>" name="theater_date" />
+                        <button type="submit" class="change_page">◀ 이전</button>
+                    </form>
+                <?php
+            } else
+                echo "<li></li>";
+        
+                $show_start_page_num = 1;
+                $show_page_num = 8;
+                if ($page < $show_page_num && $page >= $show_start_page_num){
+                    $show_start_page_num = $show_start_page_num;
+                    $show_page_num = $show_page_num;
+                } else if($page > $show_page_num){
+                    $show_start_page_num += $page - $show_page_num;
+                    $show_page_num += $page - $show_page_num;
+                }
+                for ($i = $show_start_page_num; $i <= $show_page_num; $i++){
+                    if ($page == $i) {
+                        ?>
+                            <form>
+                                <button class="no_selected_page" disabled><?=$i?></button>
+                            </form>
+                        <?php
+                    } else {
+                        ?>
+                            <form action="theater_form.php?page=<?=$i?>" method="post">
+                                    <input type="hidden" value="<?=$theater_date?>" name="theater_date" />
+                                    <button type="submit" class="selected_page"><?=$i?></button>
+                            </form>
+                        <?php
+                    }
+                }
+                if ($theater_page>=2 && $page != $theater_page){
+                    $new_page = $page+1;
+                    ?>
+                    <form action="theater_form.php?page=<?=$new_page?>" method="post">
+                        <input type="hidden" value="<?=$theater_date?>" name="theater_date" />
+                        <button type="submit" class="change_page">다음 ▶</button>
+                    </form>
+                    <form action="theater_form.php?page=<?=$theater_page?>" method="post">
+                        <input type="hidden" value="<?=$theater_date?>" name="theater_date" />
+                        <button type="submit" class="change_page">마지막 ▶</button>
+                    </form>
+                    <?php
+                } else 
+                    echo "<li></li>";
+            ?>
+        </ul>	    	
     </div>
     <?php include "footer.html" ?>
 </body>
