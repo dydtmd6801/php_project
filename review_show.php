@@ -120,34 +120,64 @@
         mysqli_close($con);
         ?>
         </ul>
-        <ul id="page_num"> 	
+        <ul class="page_num">
             <?php
-                if ($total_page>=2 && $page >= 2)	
-                {
-                    $new_page = $page-1;
-                    echo "<li><a href='board_list.php?page=$new_page'>◀ 이전</a> </li>";
-                }		
-                else 
-                    echo "<li></li>";
+            if ($total_page>=2 && $page >= 2)	
+            {
+                $new_page = $page-1;
+                ?>
+                    <form action="review_show.php?page=1" method="post">
+                        <button type="submit" class="change_page">◀ 처음</button>
+                    </form>
+                    <form action="review_show.php?page=<?=$new_page?>" method="post">
+                        <button type="submit" class="change_page">◀ 이전</button>
+                    </form>
+                <?php
+            } else
+                echo "<li></li>";
 
-                // 게시판 목록 하단에 페이지 링크 번호 출력
-                for ($i=1; $i<=$total_page; $i++)
-                {
-                    if ($page == $i)     // 현재 페이지 번호 링크 안함
-                    {
-                        echo "<li><b> $i </b></li>";
-                    }
-                    else
-                    {
-                        echo "<li><a href='board_list.php?page=$i'> $i </a><li>";
+                if($total_page <= 8){
+                    $show_start_page_num = 1;
+                    $show_page_num = $total_page;    
+                } else {
+                    $show_start_page_num = 1;
+                    $show_page_num = 8;
+                }
+                
+                if ($page < $show_page_num && $page >= $show_start_page_num){
+                    $show_start_page_num = $show_start_page_num;
+                    $show_page_num = $show_page_num;
+                } else if($page > $show_page_num){
+                    $show_start_page_num += $page - $show_page_num;
+                    $show_page_num += $page - $show_page_num;
+                }
+                for ($i = $show_start_page_num; $i <= $show_page_num; $i++){
+                    if ($page == $i) {
+                        ?>
+                            <form>
+                                <button class="no_selected_page" disabled><?=$i?></button>
+                            </form>
+                        <?php
+                    } else {
+                        ?>
+                            <form action="review_show.php?page=<?=$i?>" method="post">
+                                <button type="submit" class="selected_page"><?=$i?></button>
+                            </form>
+                        <?php
                     }
                 }
-                if ($total_page>=2 && $page != $total_page)		
-                {
+                if ($total_page>=2 && $page != $total_page){
                     $new_page = $page+1;
-                    echo "<li> <a href='board_list.php?page=$new_page'>다음 ▶</a> </li>";
-                }
-                else 
+                    ?>
+                    <form action="review_show.php?page=<?=$new_page?>" method="post">
+                        <button type="submit" class="change_page">다음 ▶</button>
+                    </form>
+                    <form action="review_show.php?page=<?=$total_page?>" method="post">
+                        <input type="hidden" value="<?=$total_page?>" name="total_page" />
+                        <button type="submit" class="change_page">마지막 ▶</button>
+                    </form>
+                    <?php
+                } else 
                     echo "<li></li>";
             ?>
         </ul>

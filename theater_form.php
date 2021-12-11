@@ -156,9 +156,15 @@
                 <?php
             } else
                 echo "<li></li>";
-        
-                $show_start_page_num = 1;
-                $show_page_num = 8;
+
+                if($theater_page <= 8){
+                    $show_start_page_num = 1;
+                    $show_page_num = $total_page;    
+                } else {
+                    $show_start_page_num = 1;
+                    $show_page_num = 8;
+                }
+
                 if ($page < $show_page_num && $page >= $show_start_page_num){
                     $show_start_page_num = $show_start_page_num;
                     $show_page_num = $show_page_num;
