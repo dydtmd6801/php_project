@@ -25,6 +25,11 @@
     </script>
 </head>
 <body>
+    <?php 
+    header("Progma:no-cache");
+    header("Cache-Control:no-cache,must-revalidate"); 
+    session_cache_limiter('private_no_expire');
+    ?>
     <?php include "httpPost_curl.php" ?>
     <?php include "header.php" ?>
     <div class="section">
@@ -124,7 +129,7 @@
                                     echo "";
                                 } else{
                                 ?>
-                                <p><a href="review_form.php?subject=<?=$subject?>&gubun=<?=$gubun?>">리뷰쓰기</a></p>
+                                <p><a href="review_check_count.php?subject=<?=$subject?>&gubun=<?=$gubun?>">리뷰쓰기</a></p>
                                 <?php
                                 }
                                 ?>

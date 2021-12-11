@@ -19,6 +19,7 @@
     padding: 15px;
     display:flex;
     flex-direction: column;
+    height: 442px;
 }
 .no_data_zone{
     border: 1px solid white;
@@ -109,4 +110,58 @@
     margin: 0 5px 0 5px;
     font-weight: bold;
     font-family: 'Noto Sans KR', sans-serif;
+}
+.review-top-menu{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 60px;
+    margin: 30px 1% 0 1%;
+}
+.review-top-menu > a{
+    flex: 1;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+    text-align: center;
+    line-height: 60px;
+    border:1px solid #ddd;
+}
+.star_area{
+    height: 45px;
+    display: flex;
+    flex-direction: row;
+}
+.star_area > img{
+    width: 30px;
+    height: 30px;
+}
+.review_title{
+    flex: 2;
+    font-weight: bold;
+    font-size: 1em;
+}
+.review_content{
+    flex: 8;
+    
+}
+.review_sub_content{
+    height: 20px;
+    font-size: .7em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.result_text{
+    float: right;
+    margin: 0 1% 0 0;
+    font-size: 1.0em;
+    color: black;
+    height: 60px;
+    line-height: 60px;
+}
+.result_text > span{
+    color: purple;
+    font-weight: bold
 }

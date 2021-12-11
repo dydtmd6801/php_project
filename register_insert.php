@@ -4,7 +4,7 @@ $pw = $_POST["regi_pw_data"];
 $name = $_POST["regi_name_data"];
 $nick = $_POST["regi_nick_data"];
 $email = $_POST["regi_email_data"];
-$regist_day = date("Y-m-d (H:i)");
+$regist_day = date("Y-m-d H:i:s");
 
 $con = mysqli_connect("localhost", "php_project", "1234", "php_project");
 

@@ -1,3 +1,17 @@
+<?php
+    session_start();
+    if (isset($_SESSION["userid"])){ 
+        $userid = $_SESSION["userid"];
+    } else{ 
+        $userid = "";
+        echo "
+            <script>
+                alert('로그인을 해주세요!');
+                location.href='review_show.php';
+            </script>
+             ";
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +21,17 @@
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/footer.css">
+    <?php
+        $con = mysqli_connect("localhost", "php_project", "1234", "php_project");
+        $sql = "select * from review where id='$userid'";
+        $review_cnt = mysqli_num_rows(mysqli_query($con, $sql));
+        if(!$review_cnt){
+            ?>
+            <link rel='stylesheet' href='./css/no_scroll.css'>
+            <?php
+        } else {
+        }
+    ?>
     <link rel="stylesheet" href="./css/starRating.css">
     <link rel="stylesheet" href="./css/review_show.css">
     <title>Document</title>
@@ -19,28 +44,28 @@
 <body>
     <?php include "header.php"; ?>
    	<div class="section">
-        <div>
+       <div>
             <div class="review-top-menu">
                 <a href="review_show.php">전체 리뷰</a>
                 <a href="review_show_PF.php">연극 리뷰</a>
                 <a href="review_show_DP.php">전시 리뷰</a>
                 <a href="review_show_MY.php">내가 쓴 리뷰</a>
             </div>
-            <?php
-                $con = mysqli_connect("localhost", "php_project", "1234", "php_project");
-                $sql = "select * from review";
-                $review_cnt = mysqli_num_rows(mysqli_query($con, $sql));
-            ?>
-            <div class="result_text">전체 리뷰 <span><?=$review_cnt?></span>건</div>
+            
+            <div class="result_text">나의 리뷰 <span><?=$review_cnt?></span>건</div>
         </div>
 	    <ul class="article clearfix">
             <?php
-                if (isset($_GET["page"]))
+                if(!$review_cnt){
+                    echo "데이터가 없습니다.";
+                }
+                else {
+                    if (isset($_GET["page"]))
                     $page = $_GET["page"];
                 else
                     $page = 1;
 
-                $sql = "select * from review order by num desc";
+                $sql = "select * from review where id='$userid' order by num desc";
                 $result = mysqli_query($con, $sql);
                 $total_record = mysqli_num_rows($result); // 전체 글 수
                 while($total_record%4 != 0){
@@ -117,8 +142,9 @@
                 <?php
                 }
             }
+        }
         mysqli_close($con);
-        ?>
+        ?>      
         </ul>
         <ul id="page_num"> 	
             <?php

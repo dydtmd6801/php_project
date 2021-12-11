@@ -1,4 +1,5 @@
 <?php
+    date_default_timezone_set("Asia/Seoul");
     session_start();
     if (isset($_SESSION["userid"])) $userid = $_SESSION["userid"];
     else $userid = "";
@@ -26,19 +27,26 @@
     $subject = str_replace("'", "\'", $subject);
 	$content = htmlspecialchars($content, ENT_QUOTES);
 
-	$regist_day = date("Y-m-d (H:i)");
+	$regist_day = date("Y-m-d H:i:s");
 
 	$con = mysqli_connect("localhost", "php_project", "1234", "php_project");
+    $sql = "insert into review (id, name, nickname, subject, content, regist_day, star,  gubun) ";
+    $sql .= "values('$userid', '$username', '$usernick', '$subject', '$content', '$regist_day', '$rating', '$gubun')";
+    mysqli_query($con, $sql);
 
-	$sql = "insert into review (id, name, nickname, subject, content, regist_day, star,  gubun) ";
-	$sql .= "values('$userid', '$username', '$usernick', '$subject', '$content', '$regist_day', '$rating', '$gubun')";
-	mysqli_query($con, $sql);
+    mysqli_close($con);
 
-	mysqli_close($con);
-
-	echo "
-	   <script>
-	    location.href = 'theater_form.php';
-	   </script>
-	";
+    if($gubun == "PF"){
+        echo "
+        <script>
+            location.href = 'theater_form.php';
+        </script>
+        ";
+    } else {
+        echo "
+        <script>
+            location.href = 'exhibition_form.php';
+        </script>
+        ";
+    }
 ?>

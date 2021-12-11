@@ -19,7 +19,7 @@
 <body>
     <?php include "header.php"; ?>
    	<div class="section">
-        <div>
+       <div>
             <div class="review-top-menu">
                 <a href="review_show.php">전체 리뷰</a>
                 <a href="review_show_PF.php">연극 리뷰</a>
@@ -28,10 +28,10 @@
             </div>
             <?php
                 $con = mysqli_connect("localhost", "php_project", "1234", "php_project");
-                $sql = "select * from review";
+                $sql = "select * from review where gubun='DP'";
                 $review_cnt = mysqli_num_rows(mysqli_query($con, $sql));
             ?>
-            <div class="result_text">전체 리뷰 <span><?=$review_cnt?></span>건</div>
+            <div class="result_text">전시 리뷰 <span><?=$review_cnt?></span>건</div>
         </div>
 	    <ul class="article clearfix">
             <?php
@@ -40,7 +40,7 @@
                 else
                     $page = 1;
 
-                $sql = "select * from review order by num desc";
+                $sql = "select * from review where gubun='DP' order by num desc";
                 $result = mysqli_query($con, $sql);
                 $total_record = mysqli_num_rows($result); // 전체 글 수
                 while($total_record%4 != 0){
