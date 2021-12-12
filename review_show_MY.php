@@ -49,7 +49,7 @@
                 <a href="review_show.php">전체 리뷰</a>
                 <a href="review_show_PF.php">연극 리뷰</a>
                 <a href="review_show_DP.php">전시 리뷰</a>
-                <a href="review_show_MY.php">내가 쓴 리뷰</a>
+                <a style="color: purple; text-decoration: underline;">내가 쓴 리뷰</a>
             </div>
             
             <div class="result_text">나의 리뷰 <span><?=$review_cnt?></span>건</div>
@@ -122,8 +122,8 @@
                             }
                             ?>
                         </div>
-                        <div class="review_title">제목 <?=$subject?></div>
-                        <div class="review_content">내용 <?=$content?></div>
+                        <div class="review_title"><?=$subject?></div>
+                        <div class="review_content"><?=$content?></div>
                         <div class="review_sub_content">
                             <span><?=$nickname?></span>
                             <span><?=$regist_day?></span>

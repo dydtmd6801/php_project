@@ -13,6 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
     <title>Document</title>
     <script>
+        async console.log(document.getElementById('theater_date').textContent);
         function check_theater_date(){
             if(!document.getElementById("id_theater").value){
                 alert("날짜를 입력해주세요!");
@@ -38,29 +39,31 @@
                 <input type="month" name="theater_date" max="" id="id_theater">
                 <button type="button" onclick="check_theater_date()">조회</button>
             </form>
-            <?php
-            $theater_date = $_POST["theater_date"];
-            if(!$theater_date){
-                $theater_date = date("Y-m");
-            }
-            echo "현재 조회한 날짜 : ".$theater_date."<hr>";
-            ?>
+            <div class="api_top_info">
+                <?php
+                $theater_date = $_POST["theater_date"];
+                if(!$theater_date){
+                    $theater_date = date("Y-m");
+                }
+                if(isset($_GET["page"]))
+                    $page = $_GET["page"];
+                else
+                    $page = 1;
+
+                $set_url = "https://dgfc.or.kr/ajax/event/list.json?event_gubun=PF&start_date=".$theater_date;
+                $theater_data = httpPost("$set_url");
+                $theater_data_decode = json_decode($theater_data, true);
+                $theater_data_count = count($theater_data_decode);
+                while($theater_data_count%4 != 0){
+                    $theater_data_count = $theater_data_count + 1;
+                }
+                ?>
+                    <p>현재 조회한 날짜 : <?=$theater_date?></p>
+                    <p>전체 연극 <span><?=$theater_data_count?></span>건</p>
+            </div>
         </div>
         <ul class="article clearfix">
         <?php
-            if(isset($_GET["page"]))
-                $page = $_GET["page"];
-            else
-                $page = 1;
-
-            $set_url = "https://dgfc.or.kr/ajax/event/list.json?event_gubun=PF&start_date=".$theater_date;
-            $theater_data = httpPost("$set_url");
-            $theater_data_decode = json_decode($theater_data, true);
-            $theater_data_count = count($theater_data_decode);
-            while($theater_data_count%4 != 0){
-                $theater_data_count = $theater_data_count + 1;
-            }
-            
             $list = 8;
 
             if($theater_data_count % $list == 0){
@@ -106,7 +109,7 @@
                             </span>
                             <span class="data_place"><?=$place?></span>
                             <div class="bottom_menu">
-                                <p class="data_date">
+                                <p class="data_date" id="theater_date">
                                     <?php
                                     if($start_date == $end_date){
                                         $total_date = $start_date;

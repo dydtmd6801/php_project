@@ -108,3 +108,20 @@
     font-weight: bold;
     font-family: 'Noto Sans KR', sans-serif;
 }
+.api_top_info{
+    color: black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 1% 0 1%;
+    height: 60px;
+    line-height: 60px;
+}
+.api_top_info{
+    font-size: 1.0em;
+    color: black;
+}
+.api_top_info > p > span{
+    color: purple;
+    font-weight: bold
+}

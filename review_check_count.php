@@ -18,13 +18,21 @@
     $con = mysqli_connect("localhost", "php_project", "1234", "php_project");
     $sql = "select * from review where id='$userid' and subject=\"$subject\"";
     $result_check = mysqli_num_rows(mysqli_query($con, $sql));
+    echo $result_check;
+    echo $userid;
+    echo $subject;
+    echo $sql;
 
     if(!$result_check){
-        echo    "
-                <script>
-                    location.href='review_form.php?subject=$subject&gubun=$gubun';
-                </script>
-                ";
+            ?>
+            <form action="review_form.php" method="post" name="go_review_form">
+                <input type="hidden" name="subject" value="<?=$subject?>">
+                <input type="hidden" name="gubun" value="<?=$gubun?>">
+            </form>
+            <script>
+                document.go_review_form.submit();
+            </script>
+            <?php
     } else {
         echo    "
                 <script>

@@ -53,8 +53,10 @@
 </head>
 <body>
     <?php include "header.php"; ?>
-    <?php $subject = $_GET["subject"];
-          $gubun   = $_GET["gubun"] ?>
+    <?php 
+        $subject = $_POST["subject"];
+        $gubun   = $_POST["gubun"]
+    ?>
     <section>
         <div id="img-area">
             <img src="">

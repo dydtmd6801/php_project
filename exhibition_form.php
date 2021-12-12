@@ -21,7 +21,6 @@
             }
             document.getElementById("id_exhibition_form").submit();
         }
-        
     </script>
 </head>
 <body>
@@ -160,7 +159,7 @@
             
                     if($exhibition_page <= 8){
                         $show_start_page_num = 1;
-                        $show_page_num = $total_page;    
+                        $show_page_num = $exhibition_page;    
                     } else {
                         $show_start_page_num = 1;
                         $show_page_num = 8;
