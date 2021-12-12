@@ -61,22 +61,37 @@
         $gubun   = $_GET["gubun"];
         session_start();
         $nickname = $_SESSION["usernick"];
+        $con = mysqli_connect("localhost", "php_project", "1234", "php_project");
+        $sql = "select * from review where subject=\"$subject\" and nickname='$nickname'";
+        $result = mysqli_query($con, $sql);
+        $result_num = mysqli_num_rows($result);
+        if(!$result_num){
+            echo    "
+                    <script>
+                        alert('권한이 없습니다.');
+                        history.go(-1);
+                    </script>
+                    ";
+        }
+        $result_row = mysqli_fetch_array($result);
+        $result_content = $result_row["content"];
+        $result_subject = $result_row["subject"];
     ?>
     <section>
         <div id="img-area">
             <img src="">
         </div>
-        <form action="review_insert.php?subject=<?=$subject?>&gubun=<?=$gubun?>" id="review_insert_id" method="post">
+        <form action="review_modify.php?subject=<?=$subject?>&gubun=<?=$gubun?>" id="review_insert_id" method="post">
             <div id="review_form">
                 <div id="review_subject">
                     <?php
                     if($gubun == "PF"){
                         ?>
-                        연극 제목 : <?=$subject?>
+                        연극 제목 : <?=$result_subject?>
                         <?php
                     } else {
                         ?>
-                        전시 제목 : <?=$subject?>
+                        전시 제목 : <?=$result_subject?>
                         <?php
                     }
                     ?>
@@ -102,22 +117,11 @@
                     닉네임 : <?=$nickname?>
                 </div>
                 <div id="review_content">
-                    <textarea cols="80" rows="10" id="id_content" name="theater_content" placeholder="리뷰를 입력해 주세요!"></textarea>
+                    <textarea cols="80" rows="10" id="id_content" name="theater_content"><?=$result_content?></textarea>
                 </div>
                 <div id="review_btn">
                     <button type="button" onclick="theater_review()">완료</button>
-                    <?php
-                    if($gubun == "PF"){
-                        ?>
-                        <button type="button" onclick="location.href='theater_form.php'">목록</button>
-                        <?php
-                    } else {
-                        ?>
-                        <button type="button" onclick="location.href='exhibition_form.php'">목록</button>
-                        <?php
-                    }
-                    ?>
-                    
+                    <button type="button" onclick="location.href='review_show.php'">목록</button>
                 </div>
             </div>
         </form>

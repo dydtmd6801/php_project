@@ -28,37 +28,41 @@
     header("Progma:no-cache");
     header("Cache-Control:no-cache,must-revalidate"); 
     session_cache_limiter('private_no_expire');
+    $now_date = date("Y-m");
     ?>
     <?php include "httpPost_curl.php" ?>
     <?php include "header.php" ?>
     <div class="section">
         <div>
-            <form action="exhibition_form.php" method="post" name="exhibition_form" id="id_exhibition_form">
-                <input type="month" name="exhibition_date" max="" id="id_exhibition">
-                <button type="button" onclick="check_exhibition_date()">조회</button>
+            <form action="exhibition_form.php" method="post" name="exhibition_form" id="id_exhibition_form" class="date_zone">
+                <input type="month" name="exhibition_date" max="" id="id_exhibition" value="<?=$now_date?>">
+                <button type="button" class="search_btn" onclick="check_exhibition_date()">조회</button>
             </form>
-            <?php
-            $exhibition_date = $_POST["exhibition_date"];
-            if(!$exhibition_date){
-                $exhibition_date = date("Y-m");
-            }
-            echo "현재 조회한 날짜 : ".$exhibition_date."<hr>";
-            ?>
+            <div class="api_top_info">
+                <?php
+                $exhibition_date = $_POST["exhibition_date"];
+                if(!$exhibition_date){
+                    $exhibition_date = date("Y-m");
+                }
+                if(isset($_GET["page"]))
+                    $page = $_GET["page"];
+                else
+                    $page = 1;
+
+                $set_url = "https://dgfc.or.kr/ajax/event/list.json?event_gubun=DP&start_date=".$exhibition_date;
+                $exhibition_data = httpPost("$set_url");
+                $exhibition_data_decode = json_decode($exhibition_data, true);
+                $exhibition_data_count = count($exhibition_data_decode);
+                while($exhibition_data_count%4 != 0){
+                    $exhibition_data_count = $exhibition_data_count + 1;
+                }
+                ?>
+                    <p>현재 조회한 날짜 : <?=$exhibition_date?></p>
+                    <p>전체 연극 <span><?=$exhibition_data_count?></span>건</p>
+            </div>
         </div>
         <ul class="article clearfix">
         <?php
-            if(isset($_GET["page"]))
-                $page = $_GET["page"];
-            else
-                $page = 1;
-
-            $set_url = "https://dgfc.or.kr/ajax/event/list.json?event_gubun=DP&start_date=".$exhibition_date;
-            $exhibition_data = httpPost("$set_url");
-            $exhibition_data_decode = json_decode($exhibition_data, true);
-            $exhibition_data_count = count($exhibition_data_decode);
-            while($exhibition_data_count%4 != 0){
-                $exhibition_data_count = $exhibition_data_count + 1;
-            }
             
             $list = 8;
 

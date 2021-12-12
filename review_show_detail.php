@@ -42,11 +42,15 @@
             width: 30px;
             height: 30px;
         }
+        #nickname_area{
+            height: 30px;
+        }
     </style>
 </head>
 <body>
     <?php include "header.php"; ?>
-    <?php   
+    <?php  
+        $login_nick = $_SESSION["usernick"];
         $nickname = $_GET["nickname"];
         $subject  = $_GET["subject"];
         $gubun    = $_GET["gubun"];
@@ -57,6 +61,8 @@
         $result_subject = $result_row["subject"];
         $result_content = $result_row["content"];
         $result_star    = $result_row["star"];
+        $result_gubun   = $result_row["gubun"];
+        $result_content = str_replace("<br />","",$result_content);
     ?>
     <section>
         <div id="img-area">
@@ -65,7 +71,18 @@
         <form action="review_insert.php?subject=<?=$subject?>&gubun=<?=$gubun?>" id="review_insert_id" method="post">
             <div id="review_form">
                 <div id="review_subject">
-                    연극 제목 : <?=$result_subject?>
+                    <?php
+                    if($result_gubun == "PF"){
+                        ?>
+                        연극 제목 : <?=$result_subject?>
+                        <?php
+                    } else {
+                        ?>
+                        전시 제목 : <?=$result_subject?>
+                        <?php
+                    }
+                    ?>
+                    
                 </div>
                 <div id="review_star_fix">
                     <?php 
@@ -81,11 +98,25 @@
                         }
                     ?>
                 </div>
+                <div id="nickname_area">
+                    닉네임 : <?=$nickname?>
+                </div>
                 <div id="review_content">
                     <textarea cols="80" rows="10" id="id_content" name="theater_content" style="color: black" disabled><?=$result_content?></textarea>
                 </div>
                 <div id="review_btn">
-                    <button type="button" onclick="theater_review()">완료</button>
+                    <?php
+                    $sql = "select * from review where subject='$subject' and nickname='$login_nick'";
+                    $result = mysqli_query($con, $sql);
+                    $result_num = mysqli_num_rows($result);
+                    if($result_num){
+                        ?>
+                        <button type="button" onclick="location.href='review_modify_form.php?subject=<?=$subject?>'">수정</button>
+                        <?php
+                    } else {
+                        echo "";
+                    }
+                    ?>
                     <button type="button" onclick="location.href='theater_form.php'">목록</button>
                 </div>
             </div>

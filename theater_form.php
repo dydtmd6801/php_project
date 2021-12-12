@@ -13,7 +13,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
     <title>Document</title>
     <script>
-        async console.log(document.getElementById('theater_date').textContent);
         function check_theater_date(){
             if(!document.getElementById("id_theater").value){
                 alert("날짜를 입력해주세요!");
@@ -30,14 +29,15 @@
     header("Progma:no-cache");
     header("Cache-Control:no-cache,must-revalidate"); 
     session_cache_limiter('private_no_expire');
+    $now_date = date("Y-m");
     ?>
     <?php include "httpPost_curl.php" ?>
     <?php include "header.php" ?>
     <div class="section">
         <div>
-            <form action="theater_form.php" method="post" name="theater_form" id="id_theater_form">
-                <input type="month" name="theater_date" max="" id="id_theater">
-                <button type="button" onclick="check_theater_date()">조회</button>
+            <form action="theater_form.php" method="post" name="theater_form" id="id_theater_form" class="date_zone">
+                <input type="month" name="theater_date" max="" id="id_theater" value="<?=$now_date?>">
+                <button type="button" class="search_btn" onclick="check_theater_date()">조회</button>
             </form>
             <div class="api_top_info">
                 <?php

@@ -125,3 +125,38 @@
     color: purple;
     font-weight: bold
 }
+.date_zone{
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 30px 1% 0 1%;
+    height: 60px;
+    line-height: 60px;
+    border: 1px solid #ddd;
+}
+#id_theater{
+    border: none;
+    font-family: "Noto Sans Kr", sans-serif;
+    font-size: 1.1em;
+    height: 60px;
+}
+input[type="month"]::-webkit-calendar-picker-indicator,
+input[type="month"]::-webkit-inner-spin-button {
+    display: none;
+    appearance: none;
+}
+.search_btn{
+    border: 1px solid purple;
+    font-family: "Noto Sans Kr", sans-serif;
+    background: white;
+    color: purple;
+    font-size: .9em;
+    height: 30px;
+    margin: 15px;
+    cursor: pointer;
+}
+.search_btn:hover{
+    background: purple;
+    color: white;
+}
