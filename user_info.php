@@ -51,25 +51,29 @@
             }
             document.getElementById("mypage-edit-id").submit();
         }
-        function show_detail_id(){
+        function show_detail_id(id_data){
             var info_id = document.getElementsByClassName("plac_sty")[0];
-            info_id.value = "아이디";
-            info_id.addEventListener("mouseleave", () => info_id.value="")
+            info_id.value = "";
+            info_id.placeholder = "아이디";
+            info_id.addEventListener("mouseleave", ()=>{info_id.value = id_data});
         }
-        function show_detail_name(){
+        function show_detail_name(name_data){
             var info_name = document.getElementsByClassName("plac_sty")[1];
-            info_name.value = "이름";
-            info_name.addEventListener("mouseleave", () => info_name.value="")
+            info_name.value = "";
+            info_name.placeholder = "이름";
+            info_name.addEventListener("mouseleave", () => info_name.value = name_data)
         }
-        function show_detail_nick(){
+        function show_detail_nick(nick_data){
             var info_nick = document.getElementsByClassName("plac_sty")[2];
-            info_nick.value = "닉네임";
-            info_nick.addEventListener("mouseleave", () => info_nick.value="")
+            info_nick.value = "";
+            info_nick.placeholder = "닉네임";
+            info_nick.addEventListener("mouseleave", () => info_nick.value = nick_data)
         }
-        function show_detail_email(){
+        function show_detail_email(email_data){
             var info_email = document.getElementsByClassName("plac_sty")[3];
-            info_email.value = "이메일";
-            info_email.addEventListener("mouseleave", () => info_email.value="")
+            info_email.value = "";
+            info_email.placeholder = "이메일";
+            info_email.addEventListener("mouseleave", () => info_email.value = email_data)
         }
     </script>
     <script src="./js/login_regi.js"></script>
@@ -92,10 +96,10 @@
     <div class="form">
         <p id="mypage-title">마이페이지</p>
         <form class="mypage-show-form">
-            <input type="text" class="plac_sty" value="" placeholder="<?=$id?>" onmouseover="show_detail_id()" readonly/>
-            <input type="text" class="plac_sty" value="" placeholder="<?=$name?>" onmouseover="show_detail_name()" readonly/>
-            <input type="text" class="plac_sty" value="" placeholder="<?=$nick?>" onmouseover="show_detail_nick()" readonly/>
-            <input type="text" class="plac_sty" value="" placeholder="<?=$email?>" onmouseover="show_detail_email()" readonly/>
+            <input type="text" class="plac_sty" value="<?=$id?>" placeholder="" onmouseover="show_detail_id('<?=$id?>')" readonly/>
+            <input type="text" class="plac_sty" value="<?=$name?>" placeholder="" onmouseover="show_detail_name('<?=$name?>')" readonly/>
+            <input type="text" class="plac_sty" value="<?=$nick?>" placeholder="" onmouseover="show_detail_nick('<?=$nick?>')" readonly/>
+            <input type="text" class="plac_sty" value="<?=$email?>" placeholder="" onmouseover="show_detail_email('<?=$email?>')" readonly/>
             <p class="message"><a href="#"> 정보수정 </a><a href="user_logout.php"> 로그아웃 </a><a href="index.php"> 취소 </a></p>
         </form>
         

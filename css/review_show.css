@@ -158,6 +158,11 @@
     flex-direction: row;
     justify-content: space-between;
 }
+.review_sub_content > span > a{
+    text-decoration: underline;
+    text-decoration-color: black;
+    color:black
+}
 .result_text{
     float: right;
     margin: 0 1% 0 0;

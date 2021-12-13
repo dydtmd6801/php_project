@@ -80,7 +80,6 @@
                         <?php
                     }
                     ?>
-                    
                 </div>
                 <div id="review_star">
                     별점 : 

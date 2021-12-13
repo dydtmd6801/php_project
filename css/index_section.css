@@ -1,3 +1,11 @@
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
 section{
     width: 100%;
     background: aliceblue;
@@ -5,20 +13,98 @@ section{
 #main_section{
     display: flex;
     flex-direction: row;
+    justify-content: center;
     width: 1080px;
     margin: 0 auto;
 }
 #main_section > div{
-    flex: 1;
-    height: 500px;
-    margin: -100px 60px 50px 60px;
+    /* flex: 1; */
+    width: 500px;
+    height: 480px;
+    margin: -80px 60px 50px 60px;
     border-radius: 20px;
     background: white;
     position: relative;
     box-shadow: 1px 2px 10px rgb(0 0 0 / 15%);
+    animation: fadein 3s;
+    -webkit-animation: fadein 3s; /* Safari and Chrome */
 }
 #main_section > div:hover{
     transform: translate3d(0, -10px, 0);
     -webkit-transform: translate3d(0, -10px, 0);
     box-shadow: 0 23px 40px rgb(0 0 0 / 20%);
+}
+.ranking_subject{
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
+}
+.ranking_subject > a{
+    font-size: 2em;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+}
+.under-bar{
+    width: 100%;
+    height: 5px;
+    background: black;
+}
+.ranking_content > li:nth-child(even){
+    background: #ddd;
+}
+.ranking_content_title{
+    margin: 0 auto;
+    height: 50px;
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    border-bottom: 3px solid black;
+}
+.ranking_sub_content{
+    margin: 0 auto;
+    height: 65px;
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+}
+.ranking_content_title > span{
+    font-size: 1.05em;
+    line-height: 50px;
+    text-align: center;
+    font-weight: bold;
+}
+.ranking_sub_content > span{
+    font-size: .8em;
+    line-height: 65px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.ranking_content_title > span:nth-child(1),
+.ranking_sub_content > span:nth-child(1){
+    /* width: 120px; */
+    flex: 2;
+}
+.ranking_content_title > span:nth-child(2),
+.ranking_sub_content > span:nth-child(2){
+    flex: 4;
+    /* width: */
+}
+.ranking_content_title > span:nth-child(3),
+.ranking_content_title > span:nth-child(4),
+.ranking_sub_content > span:nth-child(3),
+.ranking_sub_content > span:nth-child(4){
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+}
+.ranking_content_title > span:nth-child(3) > img,
+.ranking_content_title > span:nth-child(4) > img,
+.ranking_sub_content > span:nth-child(3) > img,
+.ranking_sub_content > span:nth-child(4) > img{
+    width: 20px;
+    height: 20px;
 }

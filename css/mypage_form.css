@@ -68,4 +68,7 @@ body {
 }
 .plac_sty::placeholder{
   color: black;
+  font-size: 1.05em;
+  font-weight: bold;
+  font-family: 'Noto Sans KR', sans-serif;
 }
