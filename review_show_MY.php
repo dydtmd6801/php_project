@@ -56,6 +56,8 @@
         </div>
 	    <ul class="article clearfix">
             <?php
+                session_start();
+                $login_nick = $_SESSION["usernick"];
                 if(!$review_cnt){
                     echo "데이터가 없습니다.";
                 }
@@ -109,6 +111,7 @@
                 ?>
                     <li class="data_zone">
                         <div class="star_area">
+                        <div>
                             <?php 
                             for($j = 0; $j < $star; $j++){
                                 ?>
@@ -121,6 +124,23 @@
                                 <?php
                             }
                             ?>
+                            </div>
+                            <div>
+                            <?php
+                            $heart_check_sql = "select * from like_cnt where nickname='$login_nick' and review_num=$num and gubun='$gubun'";
+                            // echo $heart_check_sql;
+                            $heart_check_sql_result_num = mysqli_num_rows(mysqli_query($con, $heart_check_sql));
+                            if(!$heart_check_sql_result_num){
+                                ?>
+                                <img src="./img/heart_empty.png" onclick="location.href='like_up.php?num=<?=$num?>&gubun=<?=$gubun?>'">
+                                <?php
+                            } else {
+                            ?>
+                                <img src="./img/heart.png" onclick="location.href='like_up.php?num=<?=$num?>&gubun=<?=$gubun?>'">
+                            <?php
+                            }
+                            ?>
+                            </div>
                         </div>
                         <div class="review_title"><?=$subject?></div>
                         <div class="review_content"><?=$content?></div>

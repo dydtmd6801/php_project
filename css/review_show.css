@@ -129,11 +129,16 @@
     border:1px solid #ddd;
 }
 .star_area{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.star_area > div{
     height: 45px;
     display: flex;
     flex-direction: row;
 }
-.star_area > img{
+.star_area > div > img{
     width: 30px;
     height: 30px;
 }

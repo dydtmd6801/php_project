@@ -27,6 +27,8 @@
                 <a href="review_show_MY.php">내가 쓴 리뷰</a>
             </div>
             <?php
+                session_start();
+                $login_nick = $_SESSION['usernick'];
                 $con = mysqli_connect("localhost", "php_project", "1234", "php_project");
                 $sql = "select * from review where gubun='PF'";
                 $review_cnt = mysqli_num_rows(mysqli_query($con, $sql));
@@ -84,6 +86,7 @@
                 ?>
                     <li class="data_zone">
                         <div class="star_area">
+                        <div>
                             <?php 
                             for($j = 0; $j < $star; $j++){
                                 ?>
@@ -96,6 +99,22 @@
                                 <?php
                             }
                             ?>
+                            </div>
+                            <div>
+                            <?php
+                            $heart_check_sql = "select * from like_cnt where nickname='$login_nick' and review_num=$num and gubun='$gubun'";
+                            $heart_check_sql_result_num = mysqli_num_rows(mysqli_query($con, $heart_check_sql));
+                            if(!$heart_check_sql_result_num){
+                                ?>
+                                <img src="./img/heart_empty.png" onclick="location.href='like_up.php?num=<?=$num?>&gubun=<?=$gubun?>'">
+                                <?php
+                            } else {
+                            ?>
+                                <img src="./img/heart.png" onclick="location.href='like_up.php?num=<?=$num?>&gubun=<?=$gubun?>'">
+                            <?php
+                            }
+                            ?>
+                            </div>
                         </div>
                         <div class="review_title"><?=$subject?></div>
                         <div class="review_content"><?=$content?></div>

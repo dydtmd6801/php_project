@@ -115,7 +115,7 @@
                     <div class="review_star">
                         <?php
                         $con = mysqli_connect("localhost", "php_project", "1234", "php_project");
-                        $sql = "select * from like_cnt where review_num=$result_num_code and gubun='$result_gubun'";
+                        $sql = "select * from like_cnt where review_num=$result_num_code and gubun='$result_gubun' and like_count=1";
                         $result_heart = mysqli_query($con, $sql);
                         $result_heart_num = mysqli_num_rows($result_heart);
                         if(!$result_heart_num){
@@ -139,7 +139,7 @@
                 </div>
                 <div id="review_btn">
                     <?php
-                    $sql = "select * from review where subject='$subject' and nickname='$login_nick'";
+                    $sql = "select * from review where subject='$subject' and nickname='$login_nick' and num='$result_num_code'";
                     $result = mysqli_query($con, $sql);
                     $result_num = mysqli_num_rows($result);
                     if($result_num){
