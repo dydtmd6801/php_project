@@ -21,7 +21,6 @@ $modify_day = date("Y-m-d H:i:s");
 
 $con = mysqli_connect("localhost", "php_project", "1234", "php_project");
 $sql = "update user set password='$pw', name='$name', email='$email', modify_day='$modify_day' where id='$id'";
-echo $sql;
 mysqli_query($con, $sql);
 mysqli_close($con);
 

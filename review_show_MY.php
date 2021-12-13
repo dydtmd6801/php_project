@@ -132,11 +132,11 @@
                             $heart_check_sql_result_num = mysqli_num_rows(mysqli_query($con, $heart_check_sql));
                             if(!$heart_check_sql_result_num){
                                 ?>
-                                <img src="./img/heart_empty.png" onclick="location.href='like_up.php?num=<?=$num?>&gubun=<?=$gubun?>'">
+                                <img src="./img/heart_empty.png" onclick="location.href='like_up.php?num=<?=$num?>&gubun=<?=$gubun?>&page=<?=$page?>&goPage=\'my\''">
                                 <?php
                             } else {
                             ?>
-                                <img src="./img/heart.png" onclick="location.href='like_up.php?num=<?=$num?>&gubun=<?=$gubun?>'">
+                                <img src="./img/heart.png" onclick="location.href='like_up.php?num=<?=$num?>&gubun=<?=$gubun?>&page=<?=$page?>&goPage=\'my\''">
                             <?php
                             }
                             ?>
