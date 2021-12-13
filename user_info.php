@@ -76,7 +76,7 @@
             <input type="text" class="plac_sty" placeholder="<?=$name?>" readonly/>
             <input type="text" class="plac_sty" placeholder="<?=$nick?>" readonly/>
             <input type="text" class="plac_sty" placeholder="<?=$email?>" readonly/>
-            <p class="message"><a href="#"> 정보수정 </a><a href="user_logout.php"> 로그아웃 </a><a href="javascript:history.go(-1)"> 취소 </a></p>
+            <p class="message"><a href="#"> 정보수정 </a><a href="user_logout.php"> 로그아웃 </a><a href="index.php"> 취소 </a></p>
         </form>
         
         <form class="mypage-edit-form" action="user_change.php" method="post" id="mypage-edit-id">

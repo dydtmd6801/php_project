@@ -20,7 +20,7 @@
 <body>
     <div class="login-page">
     <div class="form">
-        <p id="login-title"><a href="index.php">Yong'S in Culture</a></p>
+        <p id="login-title"><a href="index.php">Dragon Review</a></p>
         <form id="register-form-id" class="register-form" action="register_insert.php" method="post">
             <div>
                 <input type="text" name="regi_id_data" id="regi_id" placeholder="아이디"/>

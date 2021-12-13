@@ -20,7 +20,7 @@
         </div>
     </div>
     <div id="main_text">
-        <div id="title_text">test</div>
-        <div id="sub_text">testtest</div>
+        <div id="title_text">안녕하세요</div>
+        <div id="sub_text">대구 연극·전시 리뷰 사이트입니다!</div>
     </div>
 </header>

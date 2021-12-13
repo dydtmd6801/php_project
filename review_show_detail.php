@@ -34,11 +34,22 @@
             font-family: "Noto Sans KR", sans-serif;
         }
         #review_star_fix{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        .review_star{
             height: 45px;
             display: flex;
             flex-direction: row;
         }
-        #review_star_fix > img{
+        .review_star > span{
+            height: 30px;
+            font-size: 1.2em;
+            line-height: 25px;
+            font-weight: bold;
+        }
+        .img-style{
             width: 30px;
             height: 30px;
         }
@@ -50,18 +61,20 @@
 <body>
     <?php include "header.php"; ?>
     <?php  
+        $userid = $_SESSION["userid"];
         $login_nick = $_SESSION["usernick"];
         $nickname = $_GET["nickname"];
         $subject  = $_GET["subject"];
         $gubun    = $_GET["gubun"];
         $con = mysqli_connect("localhost", "php_project", "1234", "php_project");
-        $sql = "select * from review where subject='$subject' and nickname='$nickname'";
+        $sql = "select * from review where subject=\"$subject\" and nickname='$nickname'";
         $result = mysqli_query($con, $sql);
         $result_row = mysqli_fetch_array($result);
         $result_subject = $result_row["subject"];
         $result_content = $result_row["content"];
         $result_star    = $result_row["star"];
         $result_gubun   = $result_row["gubun"];
+        $result_num_code= $result_row["num"];
         $result_content = str_replace("<br />","",$result_content);
     ?>
     <section>
@@ -85,18 +98,38 @@
                     
                 </div>
                 <div id="review_star_fix">
+                    <div class="review_star">
                     <?php 
                         for($j = 0; $j < $result_star; $j++){
                             ?>
-                            <img src="./img/star.png" alt="별">
+                            <img src="./img/star.png" alt="별" class="img-style">
                             <?php
                         }
                         for($k = $result_star; $k < 5; $k++){
                             ?>
-                            <img src="./img/star_empty.png" alt="빈 별">
+                            <img src="./img/star_empty.png" alt="빈 별" class="img-style">
                             <?php
                         }
                     ?>
+                    </div>
+                    <div class="review_star">
+                        <?php
+                        $con = mysqli_connect("localhost", "php_project", "1234", "php_project");
+                        $sql = "select * from like_cnt where review_num=$result_num_code and gubun='$result_gubun'";
+                        $result_heart = mysqli_query($con, $sql);
+                        $result_heart_num = mysqli_num_rows($result_heart);
+                        if(!$result_heart_num){
+                            ?>
+                            <a href="like_up.php?num=<?=$result_num_code?>&gubun=<?=$result_gubun?>"><img src="./img/heart_empty.png" class="img-style"></a>
+                            <?php
+                        } else {
+                            ?>
+                            <a href="like_up.php?num=<?=$result_num_code?>&gubun=<?=$result_gubun?>"><img src="./img/heart.png" class="img-style"></a>
+                            <span><?=$result_heart_num?></span>
+                            <?php
+                        }
+                        ?>
+                    </div>
                 </div>
                 <div id="nickname_area">
                     닉네임 : <?=$nickname?>
