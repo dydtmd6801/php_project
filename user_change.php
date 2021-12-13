@@ -11,7 +11,6 @@
             </script>
              ";
     }
-// $id = $_GET["id"];
 $pw = $_POST["data_pw"];
 $name = $_POST["data_name"];
 $email = $_POST["data_email"];

@@ -33,7 +33,6 @@ if (isset($_SESSION["userid"])){
         $sql = "update review set like_num=$like_count where num=$review_code";
         mysqli_query($con, $sql);
     }
-    // $go_url = "";
     switch($goPage){
         case "'all'":
             $go_url = "location.href='review_show.php?page=$page';";

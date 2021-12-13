@@ -31,8 +31,6 @@
 	$regist_day = date("Y-m-d H:i:s");
 
 	$con = mysqli_connect("localhost", "php_project", "1234", "php_project");
-    // $sql = "insert into review (id, name, nickname, subject, content, regist_day, star,  gubun) ";
-    // $sql .= "values('$userid', '$username', '$usernick', '$subject', '$content', '$regist_day', '$rating', '$gubun')";
     $sql = "update review set star='$rating', content='$content' where subject='$subject' and id='$userid'";
     mysqli_query($con, $sql);
 

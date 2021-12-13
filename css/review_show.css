@@ -1,5 +1,4 @@
 .section{
-    /* width: 100%; */
     width: 1080px;
     margin: 0 auto;
 }
@@ -48,7 +47,6 @@
 .data_place{
     font-size: .9em;
     flex: 2;
-    /* vertical-align: middle; */
 }
 .bottom_menu{
     flex: 1;
@@ -70,20 +68,6 @@
 .page_num form{
     display: inline;
 }
-/* .select_page, .no_select_page{
-    margin: 0 20px 0 20px;
-    font-size: 1.4em;
-    font-weight: bold;
-}
-.select_page{
-    color: purple;
-    text-decoration: underline;
-    text-decoration-color: purple;
-}
-.no_select_page a{
-    color: black;
-    text-decoration: none;
-} */
 .selected_page, .no_selected_page{
     margin: 0 15px 0 15px;
     border-style: none;

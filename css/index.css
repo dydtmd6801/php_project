@@ -64,13 +64,7 @@
     width: 40px;
     height: 40px;
 }
-
-/* section Style */
-
-/* footer Style */
 #main_footer{
-    /* position: absolute; */
-    /* bottom: 0; */
     min-width: 1080px;
     background: #f4f5f7;
     width: 100%;
@@ -117,14 +111,12 @@
     color: #989899;
     padding-top: 35px;
     padding-bottom: 15px;
-    /* line-height: 70px; */
 }
 .footer_content{
     font-size: .8em;
     color: #989899;
     padding-bottom: 5px;
     font-family: 'Noto Sans KR', sans-serif;
-    /* line-height: 20px; */
 }
 .footer_content > a{
     text-decoration: none;
@@ -132,5 +124,4 @@
     color: #989899;
     padding-bottom: 5px;
     font-family: 'Noto Sans KR', sans-serif;
-    /* line-height: 20px; */
 }

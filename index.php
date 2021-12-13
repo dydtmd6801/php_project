@@ -21,7 +21,6 @@
                 <div class="ranking_subject">
                     <a href="review_show_PF.php">연극 Review<a>
                 </div>
-                <!-- <div class="under-bar"></div> -->
                 <ul class="ranking_content">
                     <li class="ranking_content_title">
                         <span>제목</span>
@@ -56,7 +55,6 @@
                 <div class="ranking_subject">
                     <a href="review_show_PF.php">전시 Review</a>
                 </div>
-                <!-- <div class="under-bar"></div> -->
                 <ul class="ranking_content">
                     <li class="ranking_content_title">
                         <span>제목</span>

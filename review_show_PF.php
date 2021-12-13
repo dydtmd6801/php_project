@@ -44,28 +44,24 @@
 
                 $sql = "select * from review where gubun='PF' order by num desc";
                 $result = mysqli_query($con, $sql);
-                $total_record = mysqli_num_rows($result); // 전체 글 수
+                $total_record = mysqli_num_rows($result);
                 while($total_record%4 != 0){
                     $total_record = $total_record + 1;
                 }
 
                 $scale = 8;
 
-                // 전체 페이지 수($total_page) 계산 
                 if ($total_record % $scale == 0)     
                     $total_page = floor($total_record/$scale);      
                 else
                     $total_page = floor($total_record/$scale) + 1; 
 
-                // 표시할 페이지($page)에 따라 $start 계산  
                 $start = ($page - 1) * $scale;
 
             for ($i=$start; $i<$start+$scale && $i < $total_record; $i++)
             {
                 mysqli_data_seek($result, $i);
-                // 가져올 레코드로 위치(포인터) 이동
                 $row = mysqli_fetch_array($result);
-                // 하나의 레코드 가져오기
                 $num        = $row["num"];
                 $id         = $row["id"];
                 $name       = $row["name"];
