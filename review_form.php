@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
     <script async src="./js/starRating.js"></script>
-    <title>Document</title>
+    <title>리뷰작성</title>
     <script>
         function theater_review(){
             if(document.querySelector('input[name="rating"]:checked').value == 0){

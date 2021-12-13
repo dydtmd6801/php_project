@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./css/footer.css">
     <link rel="stylesheet" href="./css/starRating.css">
     <link rel="stylesheet" href="./css/review_show.css">
-    <title>Document</title>
+    <title>전시 리뷰보기</title>
     <script>
         function change_img(){
             console.log("test");
