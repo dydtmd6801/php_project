@@ -141,7 +141,7 @@
                         <div class="review_content"><?=$content?></div>
                         <div class="review_regi_day"><?=$regist_day?></div>
                         <div class="review_sub_content">
-                            <span><a href="review_show_detail.php?subject=<?=$subject?>&nickname=<?=$nickname?>">상세보기</a></span>
+                            <span><a href="review_show_detail.php?subject=<?=$subject?>&nickname=<?=$nickname?>&page=<?=$page?>&goPage='my'">상세보기</a></span>
                             <span>
                                 <?php
                                 if($gubun == "DP"){

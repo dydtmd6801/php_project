@@ -5,10 +5,16 @@ if (isset($_SESSION["userid"])){
     
     $page = $_GET["page"];
     $goPage = $_GET["goPage"];
+    $goPage = str_replace("\"","",$goPage);
     $review_code = $_GET["num"];
     $gubun = $_GET["gubun"];
     $userid = $_SESSION["userid"];
     $usernick = $_SESSION["usernick"];
+
+    echo $page."<br>";
+    echo $goPage."<br>";
+    echo $review_code."<br>";
+    echo $gubun."<br>";
 
     $con = mysqli_connect("localhost", "php_project", "1234", "php_project");
 

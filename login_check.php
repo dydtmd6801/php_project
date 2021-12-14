@@ -34,6 +34,7 @@ if(!$num_check){
         $_SESSION["userid"] = $result_row["id"];
         $_SESSION["username"] = $result_row["name"];
         $_SESSION["usernick"] = $result_row["nickname"];
+        $_SESSION["userlevel"] = $result_row["level"];
 
         echo "
             <script>

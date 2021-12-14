@@ -6,6 +6,8 @@
         $userid = "";
     };
     unset($_SESSION["userid"]);
+    unset($_SESSION["usernick"]);
+    unset($_SESSION["userlevel"]);
     echo    "
             <script>
                 alert('로그아웃 되었습니다');

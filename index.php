@@ -1,3 +1,9 @@
+<?php 
+    session_start();
+    if($_SESSION["userlevel"] == 2){
+        echo "<script>location.href='admin_page.php'</script>";
+    }
+?>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -19,7 +25,7 @@
         <div id="main_section">
             <div>
                 <div class="ranking_subject">
-                    <a href="review_show_PF.php">연극 Review<a>
+                    <a href="review_show_PF.php">연극 Review<?=$SESSION['userlevel']?><a>
                 </div>
                 <ul class="ranking_content">
                     <li class="ranking_content_title">

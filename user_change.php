@@ -15,7 +15,6 @@ $pw = $_POST["data_pw"];
 $name = $_POST["data_name"];
 $email = $_POST["data_email"];
 
-$email = $email."@".$email_domain;
 $modify_day = date("Y-m-d H:i:s");
 
 $con = mysqli_connect("localhost", "php_project", "1234", "php_project");

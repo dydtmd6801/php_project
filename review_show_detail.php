@@ -61,6 +61,9 @@
 <body>
     <?php include "header.php"; ?>
     <?php  
+        $goPage = $_GET["goPage"];
+        $goPage = str_replace("\"", "", $goPage);
+        $page = $_GET["page"];
         $userid = $_SESSION["userid"];
         $login_nick = $_SESSION["usernick"];
         $nickname = $_GET["nickname"];
@@ -120,11 +123,11 @@
                         $result_heart_num = mysqli_num_rows($result_heart);
                         if(!$result_heart_num){
                             ?>
-                            <a href="like_up.php?num=<?=$result_num_code?>&gubun=<?=$result_gubun?>"><img src="./img/heart_empty.png" class="img-style"></a>
+                            <a href="like_up.php?num=<?=$result_num_code?>&gubun=<?=$result_gubun?>&page=<?=$page?>&goPage=<?=$goPage?>"><img src="./img/heart_empty.png" class="img-style"></a>
                             <?php
                         } else {
                             ?>
-                            <a href="like_up.php?num=<?=$result_num_code?>&gubun=<?=$result_gubun?>"><img src="./img/heart.png" class="img-style"></a>
+                            <a href="like_up.php?num=<?=$result_num_code?>&gubun=<?=$result_gubun?>&page=<?=$page?>&goPage=<?=$goPage?>"><img src="./img/heart.png" class="img-style"></a>
                             <span><?=$result_heart_num?></span>
                             <?php
                         }
