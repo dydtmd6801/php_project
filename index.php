@@ -44,13 +44,14 @@
                 $content  = $result_row["content"];
                 $star     = $result_row ["star"];
                 $like_num = $result_row["like_num"];
+                $nickname = $result_row["nickname"];
                 ?>
-                    <li class="ranking_sub_content">
+                    <a href="review_show_detail.php?subject=<?=$subject?>&nickname=<?=$nickname?>&goPage='pf'"><li class="ranking_sub_content">
                         <span><?=$subject?></span>
                         <span><?=$content?></span>
                         <span><img src="./img/star.png"><?=$star?></span>
                         <span><img src="./img/heart.png"><?=$like_num?></span>
-                    </li>
+                    </li></a>
                 <?php
             }
             ?>
@@ -78,13 +79,14 @@
                 $content  = $result_row["content"];
                 $star     = $result_row ["star"];
                 $like_num = $result_row["like_num"];
+                $nickname = $result_row["nickname"];
                 ?>
-                    <li class="ranking_sub_content">
+                    <a href="review_show_detail.php?subject=<?=$subject?>&nickname=<?=$nickname?>&goPage='dp'"><li class="ranking_sub_content">
                         <span><?=$subject?></span>
                         <span><?=$content?></span>
                         <span><img src="./img/star.png"><?=$star?></span>
                         <span><img src="./img/heart.png"><?=$like_num?></span>
-                    </li>
+                    </li></a>
                 <?php
             }
             ?>

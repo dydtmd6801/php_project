@@ -49,8 +49,12 @@ section{
     height: 5px;
     background: black;
 }
-.ranking_content > li:nth-child(even){
+.ranking_content > a:nth-child(even){
     background: #ddd;
+}
+.ranking_content > a {
+    text-decoration: none;
+    color: black;
 }
 .ranking_content_title{
     margin: 0 auto;
@@ -66,6 +70,7 @@ section{
     width: 90%;
     display: flex;
     flex-direction: row;
+    background-color: inherit;
 }
 .ranking_content_title > span{
     font-size: 1.05em;
