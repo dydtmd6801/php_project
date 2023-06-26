@@ -1,4 +1,14 @@
+function whiteSpaceCheck(target) {
+    var whiteSpace = /\s/;
+    if(target.match(whiteSpace)) {
+        alert("공백을 제거해주세요!");
+    }
+    return 1;
+}
 function check_login_data(){
+    if(whiteSpaceCheck(document.getElementById("login_id").value) === 1 || whiteSpaceCheck(document.getElementById("login_pw").value) === 1){
+        return;
+    }
     if(!document.getElementById("login_id").value){
         alert("아이디를 입력해주세요!");
         document.getElementById("login_id").focus();
@@ -12,6 +22,14 @@ function check_login_data(){
     document.getElementById("login-form-id").submit();
 }
 function check_regi_data(){
+    if( whiteSpaceCheck(document.getElementById("regi_id").value) === 1 ||
+        whiteSpaceCheck(document.getElementById("regi_pw").value) === 1 ||
+        whiteSpaceCheck(document.getElementById("regi_pw_check").value) === 1 ||
+        whiteSpaceCheck(document.getElementById("regi_name").value) === 1 ||
+        whiteSpaceCheck(document.getElementById("regi_nickname").value) === 1 ||
+        whiteSpaceCheck(document.getElementById("regi_email").value) === 1){
+        return;
+    }
     if(!document.getElementById("regi_id").value){
         alert("아이디를 입력해주세요!");
         document.getElementById("regi_id").focus();
@@ -50,6 +68,9 @@ function check_regi_data(){
     document.getElementById("register-form-id").submit();
 }
 function check_register_id(){
+    if(whiteSpaceCheck(document.getElementById("regi_id").value) === 1){
+        return;
+    }
     if(!document.getElementById("regi_id").value){
         alert("아이디를 입력해주세요!");
         document.getElementById("regi_id").focus();
@@ -58,6 +79,9 @@ function check_register_id(){
     window.open("register_check_id.php?id="+document.getElementById("regi_id").value, "check_id", "width=500, height=200");
 }
 function check_register_nick(){
+    if(whiteSpaceCheck(document.getElementById("regi_name").value) === 1){
+        return;
+    }
     if(!document.getElementById("regi_nickname").value){
         alert("닉네임을 입력해주세요!");
         document.getElementById("regi_nickname").focus();
