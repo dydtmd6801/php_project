@@ -11,6 +11,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        input[type="month"]::-webkit-inner-spin-button,
+        input[type="month"]::-webkit-calendar-picker-indicator {
+            display: block;
+            -webkit-appearance: button;
+        }
+    </style>
     <title>연극 목록</title>
     <script>
         function check_theater_date(){
