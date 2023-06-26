@@ -2,8 +2,9 @@ function whiteSpaceCheck(target) {
     var whiteSpace = /\s/;
     if(target.match(whiteSpace)) {
         alert("공백을 제거해주세요!");
+        return 1;
     }
-    return 1;
+    return 2;
 }
 function check_login_data(){
     if(whiteSpaceCheck(document.getElementById("login_id").value) === 1 || whiteSpaceCheck(document.getElementById("login_pw").value) === 1){

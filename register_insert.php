@@ -17,7 +17,7 @@ mysqli_close($con);
 echo "
     <script>
         alert('회원가입이 완료되었습니다');
-        location.href = 'login_register_form.php';
+        location.href = 'login_register_submit.php';
     </script>
     ";
 ?>
